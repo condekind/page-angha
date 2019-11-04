@@ -1,4 +1,15 @@
+
 :host {
   display: grid;
-  grid-template-rows: 3em auto 1fr;
+  grid-template-rows: 5em auto 1fr;
+}
+
+div
+{
+  display: grid;
+  place-content: center;
+	background: #272822;
+  color: #A6E22E;
+  font-size: 3em;
+  line-height: 1;
 }
