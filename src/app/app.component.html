@@ -2,7 +2,7 @@
 <div>Angha</div>
 <nav mat-tab-nav-bar>
   <a mat-tab-link routerLink="/home" routerLinkActive #homeAct="routerLinkActive" [active]="homeAct.isActive">Home</a>
-  <a mat-tab-link routerLink="/home">Segunda</a>
-  <a mat-tab-link routerLink="/home">Terceira</a>
+  <a mat-tab-link routerLink="/explore" routerLinkActive #exploreAct="routerLinkActive" [active]="exploreAct.isActive">Explore</a>
+  <a mat-tab-link routerLink="/home">ABOUT</a>
 </nav>
 <router-outlet></router-outlet>
