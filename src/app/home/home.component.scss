@@ -1,0 +1,16 @@
+:host {
+  padding: 1em;
+}
+
+p {
+  margin: 1em;
+}
+
+table {
+  width: 90%;
+  margin: auto;
+}
+
+table > ::ng-deep thead {
+  display: none;
+}

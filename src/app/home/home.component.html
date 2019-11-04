@@ -1,0 +1,49 @@
+
+<h3>Angha Project</h3>
+<p>
+  The goal of the Angha Project is to generate C benchmarks out of open
+  source repositories. To this end, we download programs from these
+  repositories, split them into individual functions and reconstruct
+  missing declarations to ensure that they compile. This page contains
+  530K samples of programs that we have generated in this way. You can
+  compile them all into object files using clang or gcc. Additionally,
+  we provide all the machinery for those interested in producing
+  more benchmarks. For comparison, we also provide actual C benchmarks,
+  and synthetic programs produced by various benchmark generators. We
+  have extracted feature vectors (59 different features) for all these
+  benchmarks, in case the interested reader wants to use them to
+  autotune compilers. The passes used in the extraction are:
+  <i>
+    <span style="white-space: nowrap;">-mem2reg</span>
+    <span style="white-space: nowrap;">-O0</span>
+    <a href="https://github.com/condekind/llvm-ep" target="_blank">
+      <span style="white-space: nowrap;">-VarCounter*</span>
+      <span style="white-space: nowrap;">-EdgeCounter*</span>
+    </a>
+    <span style="white-space: nowrap;">-stats</span>
+  </i>.
+</p>
+
+<p>
+  We provide charts relating different characteristics of the
+  benchmarks available in this page. Inside each collection featured
+  on the "Available Benchmarks" section, click the 'data analysis'
+  link to have access to them. These charts show relations between
+  the following program features:
+</p>
+
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+    <td mat-cell *matCellDef="let feature"> {{feature.name}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="descHTML">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+    <td mat-cell *matCellDef="let feature" style="padding-left: 1em;" [innerHTML]="feature.descHTML"> </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="['name', 'descHTML']"></tr>
+  <tr mat-row *matRowDef="let row; columns: ['name', 'descHTML'];"></tr>
+</table>
+
