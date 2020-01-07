@@ -1,7 +1,11 @@
+.mat-tab-nav-bar
+{
+  padding-left: 150px;
+}
 
 :host {
   display: grid;
-  grid-template-rows: 5em auto 1fr;
+  grid-template-rows: 100px auto 1fr;
 }
 
 div

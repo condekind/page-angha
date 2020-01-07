@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { MatTableModule } from '@angular/material/table';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 @NgModule({
@@ -12,6 +14,8 @@ import { MatTableModule } from '@angular/material/table';
     CommonModule,
     HomeRoutingModule,
     MatTableModule,
+    MatSidenavModule,
+    MatCheckboxModule,
   ]
 })
 export class HomeModule { }
