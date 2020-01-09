@@ -1,0 +1,84 @@
+th
+
+$mdThemingProvider.definePalette('mcgpalette0', {
+  '50': 'e6e6e6',
+  '100': 'c1c1bf',
+  '200': '979895',
+  '300': '6d6f6b',
+  '400': '4e504b',
+  '500': '2f312b',
+  '600': '2a2c26',
+  '700': '232520',
+  '800': '1d1f1a',
+  '900': '121310',
+  'A100': 'aaf366',
+  'A200': '8ff037',
+  'A400': '7af300',
+  'A700': '6dda00',
+  'contrastDefaultColor': 'light',
+  'contrastDarkColors': [
+    '50',
+    '100',
+    '200',
+    'A100',
+    'A200',
+    'A400',
+    'A700'
+  ],}
+
+<resources>
+<color name="primaryColor">#2f312b</color>
+<color name="primaryLightColor">#585a54</color>
+<color name="primaryDarkColor">#050900</color>
+<color name="secondaryColor">#a6e22e</color>
+<color name="secondaryLightColor">#dbff66</color>
+<color name="secondaryDarkColor">#72b000</color>
+<color name="primaryTextColor">#d4d4d4</color>
+<color name="secondaryTextColor">#2f312b</color>
+</resources>
+
+$dark-primary-text: rgba(black, 0.87);
+$dark-secondary-text: rgba(black, 0.54);
+$dark-disabled-text: rgba(black, 0.38);
+$dark-dividers: rgba(black, 0.12);
+$dark-focused: rgba(black, 0.12);
+$light-primary-text: white;
+$light-secondary-text: rgba(white, 0.7);
+$light-disabled-text: rgba(white, 0.5);
+$light-dividers: rgba(white, 0.12);
+$light-focused: rgba(white, 0.12);
+
+a6e22e green
+
+$mlk-darkest: (
+  50 : e6e6e6,
+  100: c1c1bf,
+  200: 979895,
+  300: 6d6f6b,
+  400: 4e504b,
+  500: 2f312b,
+  600: 2a2c26,
+  700: 232520,
+  800: 1d1f1a,
+  900: 121310,
+  A100: #d7ccc8,
+  A200: #bcaaa4,
+  A400: #8d6e63,
+  A700: #5d4037,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $light-primary-text,
+    400: $light-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text,
+  )
+);

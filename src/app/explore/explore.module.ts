@@ -5,6 +5,7 @@ import { ExploreRoutingModule } from './explore-routing.module'
 import { ExploreComponent } from './explore.component'
 
 import { MatSidenavModule } from '@angular/material/sidenav'
+import { MatCardModule } from '@angular/material/card'
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { MatSidenavModule } from '@angular/material/sidenav'
   imports: [
     CommonModule,
     ExploreRoutingModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatCardModule
   ]
 })
 export class ExploreModule { }
