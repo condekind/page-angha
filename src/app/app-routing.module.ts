@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from '@angular/core'
+import { Routes, RouterModule } from '@angular/router'
 
 
 const routes: Routes = [
@@ -13,10 +13,14 @@ const routes: Routes = [
     loadChildren : () => import('./home/home.module').then(m => m.HomeModule),
   },
   {
+    path: 'benchmarks',
+    loadChildren: () => import('./benchmarks/benchmarks.module').then(m => m.BenchmarksModule),
+  },
+  {
     path: 'explore',
     loadChildren: () => import('./explore/explore.module').then(m => m.ExploreModule),
   },
-];
+]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

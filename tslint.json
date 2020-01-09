@@ -1,6 +1,7 @@
 {
   "extends": "tslint:recommended",
   "rules": {
+    "align": [true, "arguments", "elements", "members", "parameters", "statements"],
     "array-type": false,
     "arrow-parens": false,
     "deprecation": {
@@ -71,6 +72,7 @@
       true,
       "single"
     ],
+    "semicolon": [true, "never"],
     "trailing-comma": false,
     "no-conflicting-lifecycle": true,
     "no-host-metadata-property": true,

@@ -1,6 +1,20 @@
 .mat-tab-nav-bar
 {
   padding-left: 150px;
+  background-color: #2F312B;
+}
+
+.mat-tab-link
+{
+  color: #d2d2d2;
+}
+
+[aria-label=primary] {
+  background-color: white;
+}
+
+[aria-label=accent] {
+  background-color: white;
 }
 
 :host {
