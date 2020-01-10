@@ -6,7 +6,6 @@ import { HomeComponent } from './home.component'
 
 import { MatTableModule } from '@angular/material/table'
 import { MatSidenavModule } from '@angular/material/sidenav'
-import { MatCheckboxModule } from '@angular/material/checkbox'
 
 
 @NgModule({
@@ -16,7 +15,6 @@ import { MatCheckboxModule } from '@angular/material/checkbox'
     HomeRoutingModule,
     MatTableModule,
     MatSidenavModule,
-    MatCheckboxModule,
   ]
 })
 export class HomeModule { }

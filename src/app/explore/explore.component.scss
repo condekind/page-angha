@@ -2,12 +2,6 @@
 :host {
   padding: 0em;
   min-width: 650px;
-  // display: flex; // flex breaks ace for some reason :(
-}
-
-table {
-  width: 90%;
-  margin: auto;
 }
 
 tr.mat-header-row
@@ -23,7 +17,6 @@ tr.mat-header-row
 {
   padding: 2em 0em 2em 0em;
   place-content: center;
-  background: #f1f1f1;
   font-size: 100%;
   line-height: 1;
   font: inherit;
@@ -32,13 +25,11 @@ tr.mat-header-row
 
 .home-sn-content
 {
-  //padding: 0em 2em 0em 2em;
   max-width: 800px;
 }
 
 .mat-sidenav
 {
   width: 150px;
-  background: #d4d4d4;
   padding: 2em;
 }
