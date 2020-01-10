@@ -5,6 +5,7 @@ import { BenchmarksRoutingModule } from './benchmarks-routing.module'
 import { BenchmarksComponent } from './benchmarks.component'
 
 import { MatSidenavModule } from '@angular/material/sidenav'
+import { MatTableModule } from '@angular/material/table'
 
 
 
@@ -13,7 +14,8 @@ import { MatSidenavModule } from '@angular/material/sidenav'
   imports: [
     CommonModule,
     BenchmarksRoutingModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatTableModule,
   ]
 })
 export class BenchmarksModule { }

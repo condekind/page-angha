@@ -1,21 +1,37 @@
-.mat-tab-nav-bar
+#nav-main,
+#nav-main::after
 {
   padding-left: 150px;
 }
 
-.mat-tab-link
+:host
 {
-}
-
-:host {
   display: grid;
   grid-template-rows: 100px auto 1fr;
 }
 
-div
+#div-header
 {
-  display: grid;
-  place-content: center;
+  display: flex;
+  vertical-align: middle;
+  padding-left: 32px;
   font-size: 3em;
   line-height: 1;
+}
+
+#img-header-logo
+{
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+.div-app-wrapper
+{
+  display: block;
+}
+
+h1
+{
+  padding-top: 24px;
+  padding-left: 24px;
 }

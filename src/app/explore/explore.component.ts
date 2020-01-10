@@ -19,14 +19,14 @@ export class ExploreComponent implements AfterViewInit {
     editorInput.setTheme('ace/theme/monokai')
     editorInput.session.setMode('ace/mode/c_cpp')
     editorInput.$blockScrolling = Infinity
-    editorInput.setValue('#include <stdlib.h>\n' +
-      '#include <stdio.h>\n' +
-      '\n' +
-      'int main(int argc, char *argv[])\n' +
-      '{\n' +
-      '  int a, b = 0;\n' +
-      '  print("Hello china!\\n Free Hong Kong!\\n");\n' +
-      '}\n'
+    editorInput.setValue( '#include <stdlib.h>\n'                            +
+                          '#include <stdio.h>\n'                             +
+                          '\n'                                               +
+                          'int main(int argc, char *argv[])\n'               +
+                          '{\n'                                              +
+                          '  int a, b = 0;\n'                                +
+                          '  print("Hello china!\\n Free Hong Kong!\\n");\n' +
+                          '}\n'
     )
     editorInput.clearSelection()
   }

@@ -1,12 +1,14 @@
 
-<div>
-  <img src="assets/angha_logo.png" style="width:96px; padding-top: 5px;">
-  <!-- Angha -->
-</div>
-<nav mat-tab-nav-bar> <!-- [color]="'accent'" [backgroundColor]="'accent'" -->
-  <a mat-tab-link routerLink="/home" routerLinkActive #homeAct="routerLinkActive" [active]="homeAct.isActive">Home</a>
-  <a mat-tab-link routerLink="/benchmarks" routerLinkActive #benchmarksAct="routerLinkActive" [active]="benchmarksAct.isActive">Benchmarks</a>
-  <a mat-tab-link routerLink="/explore" routerLinkActive #exploreAct="routerLinkActive" [active]="exploreAct.isActive">Explore</a>
-</nav>
+<div class="div-app-wrapper" [class.theme]="dark">
+  <div id="div-header">
+    <img id="img-header-logo" src="assets/angha_logo.png" align="center" style="width:96px; padding-top: 5px;">
+    <h1>The Angha Project</h1>
+  </div>
+  <nav mat-tab-nav-bar id="nav-main"> <!-- A.K.A. The Mothership -->
+    <a mat-tab-link routerLink="/home" routerLinkActive #homeAct="routerLinkActive" [active]="homeAct.isActive">Home</a>
+    <a mat-tab-link routerLink="/benchmarks" routerLinkActive #benchmarksAct="routerLinkActive" [active]="benchmarksAct.isActive">Benchmarks</a>
+    <a mat-tab-link routerLink="/explore" routerLinkActive #exploreAct="routerLinkActive" [active]="exploreAct.isActive">Explore</a>
+  </nav>
 
-<router-outlet></router-outlet>
+  <router-outlet></router-outlet>
+</div>

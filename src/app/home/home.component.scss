@@ -1,7 +1,10 @@
+@import '../../styles.scss';
+
 :host {
   padding: 0em;
   min-width: 650px;
   display: flex;
+  font-size: 16px;
 }
 
 table {
@@ -14,25 +17,7 @@ tr.mat-header-row
   height: 36px;
 }
 
-.home-sn-container
+p
 {
-  padding: 2em 0em 2em 0em;
-  place-content: center;
-  //background: #f1f1f1;
-  font-size: 100%;
-  line-height: 1;
-  font: inherit;
-  vertical-align: baseline;
-}
-
-.home-sn-content
-{
-  padding: 0em 2em 0em 2em;
-  max-width: 800px;
-}
-
-.mat-sidenav
-{
-  width: 150px;
-  padding: 2em;
+  color: mat-color($mlk-red);
 }

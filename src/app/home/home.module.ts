@@ -1,20 +1,21 @@
-import { NgModule } from '@angular/core'
+import { NgModule, Pipe } from '@angular/core'
 import { CommonModule } from '@angular/common'
+import { DomSanitizer } from '@angular/platform-browser'
 
 import { HomeRoutingModule } from './home-routing.module'
-import { HomeComponent } from './home.component'
+import { HomeComponent, Safe } from './home.component'
 
-import { MatTableModule } from '@angular/material/table'
 import { MatSidenavModule } from '@angular/material/sidenav'
+import { MatTableModule } from '@angular/material/table'
 
 
 @NgModule({
-  declarations: [HomeComponent],
+  declarations: [HomeComponent, Safe],
   imports: [
     CommonModule,
     HomeRoutingModule,
-    MatTableModule,
     MatSidenavModule,
+    MatTableModule
   ]
 })
 export class HomeModule { }

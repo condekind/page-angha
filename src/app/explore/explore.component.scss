@@ -1,35 +1,13 @@
 
-:host {
+:host
+{
   padding: 0em;
   min-width: 650px;
+  
 }
 
-tr.mat-header-row
+.ace-monokai
 {
-  height: 36px;
+  background-color: #303030;
 }
 
-// table > ::ng-deep thead {
-//   display: none;
-// }
-
-.home-sn-container
-{
-  padding: 2em 0em 2em 0em;
-  place-content: center;
-  font-size: 100%;
-  line-height: 1;
-  font: inherit;
-  vertical-align: baseline;
-}
-
-.home-sn-content
-{
-  max-width: 800px;
-}
-
-.mat-sidenav
-{
-  width: 150px;
-  padding: 2em;
-}

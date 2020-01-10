@@ -1,10 +1,10 @@
-<mat-sidenav-container class="home-sn-container" hasBackdrop="false">
-  <mat-sidenav #sidenav mode="side" opened="true">
+<mat-sidenav-container class="explore-sn-container" hasBackdrop="false">
+  <mat-sidenav #sidenav mode="side" opened="false">
     <!-- LEFT MENU
     <p>Home</p> -->
   </mat-sidenav>
 
-  <mat-sidenav-content class="home-sn-content">
+  <mat-sidenav-content class="explore-sn-content">
 
     <mat-card class="example-card">
       <mat-card-header>
@@ -16,6 +16,24 @@
         <div #userInput style="height: 30em"></div>
       </mat-card-content>
     </mat-card>
+
+    <div>
+      <button mat-icon-button [mat-menu-trigger-for]="themeMenu" matTooltip="Select a theme!" tabindex="-1">
+        <mat-icon>format_color_fill</mat-icon>
+      </button>
+      <mat-menu class="theme-picker-menu" #themeMenu="matMenu" x-position="before">
+        <mat-grid-list cols="2">
+          <mat-grid-tile *ngFor="let theme of themes"> 
+            <div mat-menu-item (click)="installTheme(theme.name)">
+              <div class="theme-picker-swatch">
+                <mat-icon class="theme-chosen-icon" *ngIf="currentTheme === theme">check_circle</mat-icon>
+                <div class="theme-picker-primary" [style.background]="theme.primary"></div>
+              </div>
+            </div>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </mat-menu>
+    </div>
 
   </mat-sidenav-content>
 </mat-sidenav-container>
