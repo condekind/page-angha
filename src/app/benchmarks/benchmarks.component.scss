@@ -5,12 +5,16 @@
   display: flex;
 }
 
-table {
-  width: 90%;
-  margin: auto;
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
 }
 
-tr.mat-header-row
-{
-  height: 36px;
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+mat-form-field {
+  margin-right: 12px;
 }

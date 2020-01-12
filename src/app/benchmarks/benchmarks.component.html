@@ -1,40 +1,123 @@
 
-<mat-sidenav-container class="home-sn-container" hasBackdrop="false">
-  <mat-sidenav #sidenav mode="side" opened="false">
-    <!-- LEFT MENU
-    <p>Home</p> -->
-  </mat-sidenav>
-
-  <mat-sidenav-content class="home-sn-content">
-
-    <!-- MENU TOGGLE
-    <button mat-button (click)="sidenav.toggle()" style="display:none;">Compile dat menu!</button> -->
-
-    <h2 (click)="sidenav.toggle()" style="cursor: pointer;">Benchmarks</h2>
+<mat-sidenav-container hasBackdrop="false">
+  <mat-sidenav #sidenav mode="side" opened="false"><!-- L-MENU --></mat-sidenav>
+  <mat-sidenav-content>
+    <mat-card>
+      <mat-card-title>
+        Available Benchmarks
+      </mat-card-title>
+      <mat-card-content>
+        <p>
+          We provide a list of benchmark suites, as well as some data on how
+          they compare to real world programs. The following benchmark suites
+          are being used in our work:
+        </p>
+      </mat-card-content>
+    </mat-card>
     
 
-    <p>
-      We provide charts relating different characteristics of the
-      benchmarks available in this page. Inside each collection featured
-      on the "Available Benchmarks" section, click the 'data analysis'
-      link to have access to them. These charts show relations between
-      the following program features:
-    </p>
 
-    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-        <td mat-cell *matCellDef="let feature"> {{feature.name}} </td>
-      </ng-container>
+<!-- =========================== Benchmark list ===========================  -->
+    <mat-accordion class="example-headers-align" multi="true">
+      <mat-expansion-panel >
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Angha-Bench
+          </mat-panel-title>
+          <mat-panel-description>
+            10K largest functions
+          <mat-icon>save_alt</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <!-- Content here -->
+      </mat-expansion-panel>
 
-      <ng-container matColumnDef="descHTML">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
-        <td mat-cell *matCellDef="let feature" style="padding-left: 1em;" [innerHTML]="feature.descHTML"> </td>
-      </ng-container>
+      <mat-expansion-panel >
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Angha-Bench
+          </mat-panel-title>
+          <mat-panel-description>
+            530K functions
+            <mat-icon>save_alt</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+      </mat-expansion-panel>
 
-      <tr mat-header-row *matHeaderRowDef="cols; sticky: true"></tr>
-      <tr mat-row *matRowDef="let row; columns: cols;"></tr>
-    </table>
+      <mat-expansion-panel >
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Angha-Bench
+          </mat-panel-title>
+          <mat-panel-description>
+            One million functions
+            <mat-icon>save_alt</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel >
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Angha-Bench
+          </mat-panel-title>
+          <mat-panel-description>
+            15K whole programs
+            <mat-icon>save_alt</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel >
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            LLVM Test Suite
+          </mat-panel-title>
+          <mat-panel-description>
+            with extra benchmarks
+            <mat-icon>save_alt</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel >
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Liveness-Driven Random Generated Programs (ldrgen)
+          </mat-panel-title>
+          <mat-panel-description>
+            10K largest synthesized programs
+            <mat-icon>save_alt</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel >
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            CSmith
+          </mat-panel-title>
+          <mat-panel-description>
+            10K largest synthesized programs
+            <mat-icon>save_alt</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel >
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            DeepSmith
+          </mat-panel-title>
+          <mat-panel-description>
+            Aprox. 1K programs
+            <mat-icon>save_alt</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+      </mat-expansion-panel>
+
+    </mat-accordion>
+<!-- ======================== End of Benchmark list ======================== -->
     
 
   </mat-sidenav-content>

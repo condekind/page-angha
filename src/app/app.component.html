@@ -2,9 +2,8 @@
 <mat-card class="card-app-wrapper" [class.darkTheme]="darkTheme" [class.lightTheme]="lightTheme">
 
     <div id="div-header">
-      <img id="img-header-logo" src="assets/angha_logo.png" (click)="toggleTheme()">
+      <img id="img-header-logo" src="assets/angha_logo.png">
       <h1>The Angha Project</h1>
-      <mat-slide-toggle [color]="'warn'"></mat-slide-toggle>
     </div>
 
     <!-- <nav mat-tab-nav-bar id="nav-main" [color]="colorToggle.value" [backgroundColor]="'accent'"> -->
@@ -17,5 +16,5 @@
   
   <router-outlet></router-outlet> <!-- Content of tabs is displayed here -->
     
+  <mat-slide-toggle id="themeToggle" [color]="'warn'" (change)="toggleTheme()"></mat-slide-toggle>
 </mat-card>
-

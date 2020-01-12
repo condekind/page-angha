@@ -22,6 +22,7 @@
 .card-app-wrapper
 {
   padding: 0;
+  margin: 0;
   height: 100%;
 }
 
@@ -42,4 +43,11 @@ h1
 .mat-tab-link
 {
   color: mat-color($mlk-lgrey, lighter);
+}
+
+#themeToggle
+{
+  position: absolute;
+  bottom: 1em;
+  left: 1em;
 }
