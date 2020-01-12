@@ -1,39 +1,21 @@
 
 // ============================ Material Theming ============================ //
 @import '~@angular/material/theming';
+@import 'styles/angha-theme.scss';
 @include mat-core();
 
 // Predefined color palettes: https://material.io/design/color/
 
-// Light Theme ()
-// $light-primary: mat-palette($mat-indigo);
-// $light-accent:  mat-palette($mat-pink, A200, A100, A400);
-// $light-warn:    mat-palette($mat-red);
-// $light-theme:   mat-light-theme($light-primary, $light-accent, $light-warn);
-
-$bck-primary: mat-palette($mat-pink, 500, 300, 700);
-$bck-accent:  mat-palette($mat-pink, 500, 300, 700);
-$bck-warn:    mat-palette($mat-pink, 500, 300, 700);
-$bck-theme:   mat-light-theme($bck-primary, $bck-accent, $bck-warn);
-@include angular-material-theme($bck-theme);
-
-// Dark Theme (Molokai Variation)
-$mlk-red:     mat-palette($mat-pink, 500, 300, 700);          // closest to #ff1a6e
-$mlk-green:   mat-palette($mat-lime, A700);         // closest to #a6e22e
-$mlk-blue:    mat-palette($mat-cyan, 200);          // closest to #66d9ef
-$mlk-yellow:  mat-palette($mat-yellow, 300);        // closest to #e4d873
-$mlk-purple:  mat-palette($mat-deep-purple, A100);  // closest to #ac80ff
-$mlk-orange:  mat-palette($mat-orange);             // closest to #fd971f
-$mlk-bgdark:  mat-palette($mat-grey, 900);          // closest to #282923
-
-// Three main palettes
-$mlk-primary: mat-palette($mlk-green);
-$mlk-accent:  mat-palette($mlk-orange);
-$mlk-warn:    mat-palette($mlk-red);
-
-// Default theme
-$mlk-theme:   mat-dark-theme($mlk-primary, $mlk-accent, $mlk-warn);
-@include angular-material-theme($mlk-theme);
+.lightTheme {
+  @include angular-material-theme($mlk-light-theme);
+  $background: map-get($mlk-light-theme, background);
+  background-color: mat-color($background, background);
+}
+.darkTheme  {
+  @include angular-material-theme($mlk-dark-theme);
+  $background: map-get($mlk-dark-theme, background);
+  background-color: mat-color($background, background);
+}
 
 
 // =============================== Typography =============================== //
@@ -42,44 +24,35 @@ $mlk-theme:   mat-dark-theme($mlk-primary, $mlk-accent, $mlk-warn);
 @import url('https://fonts.googleapis.com/css?family=Inconsolata&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap');
 
-html,
-body
-{
-  height: 100%;
-}
-
 *
 {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Roboto', sans-serif;
   //font-family: 'Ubuntu Mono', 'Source Code Pro', 'Roboto Mono', 'Inconsolata', monospace;
 }
 
-mat-sidenav-content > p
+html,
+body
 {
+  margin: 0;
+  height: 100%;
+}
+
+p
+{
+  font-size: 16px;
   text-align: justify;
-}
-
-// ============================== XX ============================== //
-
-p a:-webkit-any-link,
-tr a:-webkit-any-link
-{
-  color: mat-color($mlk-blue);
-}
-
-p a:-webkit-any-link:visited,
-tr a:-webkit-any-link
-{
-  color: mat-color($mlk-purple);
+  padding-right: 3px;
 }
 
 
-// ============================== XX ============================== //
+// ============================== Header Align ============================== //
 h1,h2,h3,h4,h5,h6
 {
   align-self: center;
 }
 
+
+// ============================== Left Nav Bar ============================== //
 mat-sidenav-container
 {
   padding: 2em 0em 2em 0em;
@@ -91,7 +64,7 @@ mat-sidenav-container
 mat-sidenav-content
 {
   padding-left: 2em;
-  margin-right: 2em;
+  padding-right: 2em;
   max-width: 800px;
   margin-left: 150px;
 }
@@ -102,7 +75,7 @@ mat-sidenav
   padding: 2em;
 }
 
-.vrule
+mat-sidenav-content.vrule
 {
-  border-right: 1px dotted #5d5d5d
+  border-right: 1px dotted #5d5d5d;
 }

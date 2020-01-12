@@ -7,10 +7,6 @@ import { ExploreComponent } from './explore.component'
 import { MatSidenavModule } from '@angular/material/sidenav'
 import { MatCardModule } from '@angular/material/card'
 
-import { MatGridListModule } from '@angular/material/grid-list'
-import { MatIconModule } from '@angular/material/icon'
-import { MatMenuModule } from '@angular/material/menu'
-
 
 @NgModule({
   declarations: [ExploreComponent],
@@ -19,9 +15,6 @@ import { MatMenuModule } from '@angular/material/menu'
     ExploreRoutingModule,
     MatSidenavModule,
     MatCardModule,
-    MatGridListModule,
-    MatIconModule,
-    MatMenuModule,
   ]
 })
 export class ExploreModule { }

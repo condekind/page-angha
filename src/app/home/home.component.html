@@ -1,55 +1,36 @@
-
-<mat-sidenav-container class="home-sn-container" hasBackdrop="false">
-  <mat-sidenav #sidenav mode="side" opened="false">
-    <!-- LEFT MENU
-    <p>Home</p> -->
-  </mat-sidenav>
-
+<mat-sidenav-container class="home-sn-container">
+  <mat-sidenav #sidenav mode="side" opened="false"><!-- LEFT MENU --></mat-sidenav>
   <mat-sidenav-content class="home-sn-content vrule">
 
-    <!-- //MENU TOGGLE
-    <p><button mat-button (click)="sidenav.toggle()">Compile dat menu!</button></p> -->
+    <mat-card>
+      <mat-card-title (click)="sidenav.toggle()" style="cursor: pointer;">Introduction</mat-card-title>
+      <mat-card-content>
+        <p>
+          The goal of the Angha Project is to generate C benchmarks out of open
+          source repositories. To this end, we download programs from these
+          repositories, split them into individual functions and reconstruct
+          missing declarations to ensure that they compile. This page contains
+          530K samples of programs that we have generated in this way. You can
+          compile them all into object files using clang or gcc. Additionally,
+          we provide all the machinery for those interested in producing
+          more benchmarks. For comparison, we also provide actual C benchmarks,
+          and synthetic programs produced by various benchmark generators. We
+          have extracted feature vectors (59 different features) for all these
+          benchmarks, in case the interested reader wants to use them to
+          autotune compilers. The passes used in the extraction are:
+        </p>
 
-    <h2 (click)="sidenav.toggle()" style="cursor: pointer;">Introduction</h2>
-    <p>
-      The goal of the Angha Project is to generate C benchmarks out of open
-      source repositories. To this end, we download programs from these
-      repositories, split them into individual functions and reconstruct
-      missing declarations to ensure that they compile. This page contains
-      530K samples of programs that we have generated in this way. You can
-      compile them all into object files using clang or gcc. Additionally,
-      we provide all the machinery for those interested in producing
-      more benchmarks. For comparison, we also provide actual C benchmarks,
-      and synthetic programs produced by various benchmark generators. We
-      have extracted feature vectors (59 different features) for all these
-      benchmarks, in case the interested reader wants to use them to
-      autotune compilers. The passes used in the extraction are:
-    </p>
+        <div [innerHTML]="optCall | safeHtml" style="background-color: #d5d5d5"></div>
 
-    <div [innerHTML]="optCall | safeHtml" style="background-color: #d5d5d5"></div>
-
-    <!-- <i style="white-space: nowrap;">
-      -mem2reg
-      -O0
-    <a href="https://github.com/condekind/llvm-ep" target="_blank">
-      -VarCounter
-      -EdgeCounter
-    </a>
-      -stats
-    </i> -->
-
-    <p>
-      We provide charts relating different characteristics of the
-      benchmarks available in this page. Inside each collection featured
-      on the "Available Benchmarks" section, click the 'data analysis'
-      link to have access to them. These charts show relations between
-      the following program features:
-    </p>
+        <p>
+          We provide charts relating different characteristics of the
+          benchmarks available in this page. Inside each collection featured
+          on the "Available Benchmarks" section, click the 'data analysis'
+          link to have access to them. These charts show relations between
+          the following program features:
+        </p>
+      </mat-card-content>
+    </mat-card>
 
   </mat-sidenav-content>
 </mat-sidenav-container>
-
-<!-- <div>
-  RIGHT PANEL
-  <p>Extra Stuff!</p>
-</div> -->

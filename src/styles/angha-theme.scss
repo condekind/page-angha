@@ -1,0 +1,76 @@
+@import '~@angular/material/theming';
+
+// Molokai Variation
+$mlk-red:     mat-palette($mat-pink, 500, 300, 700); // closest to #ff1a6e
+$mlk-green:   mat-palette($mat-lime, A700);          // closest to #a6e22e
+$mlk-blue:    mat-palette($mat-cyan, 200);           // closest to #66d9ef
+$mlk-yellow:  mat-palette($mat-yellow, 300);         // closest to #e4d873
+$mlk-purple:  mat-palette($mat-deep-purple, A100);   // closest to #ac80ff
+$mlk-orange:  mat-palette($mat-orange);              // closest to #fd971f
+$mlk-lgrey:   mat-palette($mat-grey, 200, 50, 400);  // closest to #282923
+$mlk-dgrey:   mat-palette($mat-grey, 800, 700, 900); // closest to #282923
+
+$mlk-light-theme: mat-light-theme($mlk-dgrey, $mlk-green, $mlk-orange);
+$mlk-dark-theme:   mat-dark-theme($mlk-dgrey, $mlk-green, $mlk-orange);
+
+p a:-webkit-any-link,
+tr a:-webkit-any-link
+{
+  color: mat-color($mlk-blue);
+}
+
+p a:-webkit-any-link:visited,
+tr a:-webkit-any-link
+{
+  color: mat-color($mlk-purple);
+}
+
+
+//// Todo: Make Slide toggle always stay in dark mode
+// @mixin mat-slide-toggle-theme($theme) {
+//   $is-dark: map_get($theme, is-dark);
+//   $primary: map-get($theme, primary);
+//   $accent: map-get($theme, accent);
+//   $warn: map-get($theme, warn);
+//   $background: map-get($theme, background);
+//   $foreground: map-get($theme, foreground);
+
+//   // Color hues are based on the specs which briefly show the hues that are applied to a switch.
+//   // The 2018 specs no longer describe how dark switches should look like. Due to the lack of
+//   // information for dark themed switches, we partially keep the old behavior that is based on
+//   // the previous specifications. For the checked color we always use the `default` hue because
+//   // that follows MDC and also makes it easier for people to create a custom theme without needing
+//   // to specify each hue individually.
+//   $thumb-unchecked-hue: if($is-dark, 400, 50);
+//   $thumb-checked-hue: default;
+
+//   $bar-unchecked-color: mat-color($foreground, disabled);
+//   $ripple-unchecked-color: mat-color($foreground, base);
+
+//   .mat-slide-toggle {
+//     @include _mat-slide-toggle-checked($accent, $thumb-checked-hue);
+
+//     &.mat-primary {
+//       @include _mat-slide-toggle-checked($primary, $thumb-checked-hue);
+//     }
+
+//     &.mat-warn {
+//       @include _mat-slide-toggle-checked($warn, $thumb-checked-hue);
+//     }
+
+//     &:not(.mat-checked) .mat-ripple-element {
+//       // Set no opacity for the ripples because the ripple opacity will be adjusted dynamically
+//       // based on the type of interaction with the slide-toggle (e.g. for hover, focus)
+//       background-color: $ripple-unchecked-color;
+//     }
+//   }
+
+//   .mat-slide-toggle-thumb {
+//     @include _mat-theme-elevation(1, $theme);
+//     background-color: mat-color($mat-grey, $thumb-unchecked-hue);
+//   }
+
+//   .mat-slide-toggle-bar {
+//     background-color: $bar-unchecked-color;
+//   }
+// }

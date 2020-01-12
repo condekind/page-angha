@@ -7,6 +7,7 @@ import { HomeComponent, Safe } from './home.component'
 
 import { MatSidenavModule } from '@angular/material/sidenav'
 import { MatTableModule } from '@angular/material/table'
+import { MatCardModule } from '@angular/material/card'
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { MatTableModule } from '@angular/material/table'
     CommonModule,
     HomeRoutingModule,
     MatSidenavModule,
-    MatTableModule
+    MatTableModule,
+    MatCardModule,
   ]
 })
 export class HomeModule { }

@@ -1,21 +1,14 @@
-#nav-main,
-#nav-main::after
-{
-  padding-left: 150px;
-}
 
-:host
-{
-  display: grid;
-  grid-template-rows: 100px auto 1fr;
-}
+@import '~@angular/material/theming';
+@import '../styles/angha-theme.scss';
 
 #div-header
 {
   display: flex;
   vertical-align: middle;
-  padding-left: 32px;
-  font-size: 3em;
+  padding: 16px 0px 8px 32px;
+  color: mat-color($mlk-lgrey);
+  background: mat-color($mlk-dgrey, darker);
   line-height: 1;
 }
 
@@ -23,15 +16,30 @@
 {
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
+  width: 96px;
 }
 
-.div-app-wrapper
+.card-app-wrapper
 {
-  display: block;
+  padding: 0;
+  height: 100%;
 }
 
 h1
 {
+  font-size: 2em;
   padding-top: 24px;
   padding-left: 24px;
+  //padding-left: 48px
+}
+
+#nav-main
+{
+  padding-left: 150px;
+  background: mat-color($mlk-dgrey);
+}
+
+.mat-tab-link
+{
+  color: mat-color($mlk-lgrey, lighter);
 }
