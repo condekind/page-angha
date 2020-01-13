@@ -35,14 +35,21 @@ body
 {
   margin: 0;
   height: 100%;
+  overflow-y: auto;
 }
 
 p
 {
-  font-size: 16px;
-  text-align: justify;
   padding-right: 3px;
   margin-bottom: 16px;
+}
+
+@media(min-width: 1010px) {
+  p
+  {
+    font-size: 16px;
+    text-align: justify;
+  }
 }
 
 
@@ -54,26 +61,31 @@ h1,h2,h3,h4,h5,h6
 
 
 // ============================== Left Nav Bar ============================== //
+
 mat-sidenav-container
 {
-  padding: 2em 0em 2em 0em;
-  place-content: center;
-  font-size: 100%;
   line-height: 1;
+  width: 100%;
+  height: auto;
 }
 
 mat-sidenav-content
 {
-  padding-left: 2em;
-  padding-right: 2em;
+  padding: 1em 2em 1em 2em;
   max-width: 800px;
-  margin-left: 150px;
 }
 
-mat-sidenav
+@media (min-width: 1010px)
 {
-  width: 150px;
-  padding: 2em;
+  mat-sidenav-content
+  {
+    margin-left: 150px;
+  }
+  // mat-sidenav
+  // {
+  //   width: 150px;
+  //   padding: 2em;
+  // }
 }
 
 mat-sidenav-content.vrule
@@ -81,9 +93,70 @@ mat-sidenav-content.vrule
   border-right: 1px dotted #5d5d5d;
 }
 
+// mat-sidenav
+// {
+//   width: 150px;
+//   padding: 2em;
+// }
+
 
 // ============================== Cards ============================== //
 mat-card
 {
   margin-bottom: 1em;
+}
+
+// ============================== Slide Toggle ============================== //
+mat-slide-toggle
+{
+  z-index: 2;
+}
+
+// ================================== Misc ================================== //
+span.spacer
+{
+  width: stretch;
+}
+
+.chart-img
+{
+  justify-self: center;
+  width: auto;
+  max-width: 95%;
+}
+
+.img-grid
+{
+  padding-top: 1.3em;
+  display: grid;
+  grid-auto-flow: row;
+  grid-row-gap: 2em;
+}
+
+@media (min-width: 1800px) {
+  .chart-img
+  {
+    justfy-self: center;
+    max-width: 100%;
+  }
+  .img-grid
+  {
+    grid-gap: 1em;
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+}
+
+@media (min-width:750px) and (max-width:1000px) {
+  .chart-img
+  {
+    justfy-self: center;
+    max-width: 100%;
+  }
+  .img-grid
+  {
+    grid-gap: 1em;
+    display: grid;
+    grid-template-columns: auto auto;
+  }
 }

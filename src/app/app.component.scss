@@ -36,8 +36,15 @@ h1
 
 #nav-main
 {
-  padding-left: 150px;
   background: mat-color($mlk-dgrey);
+}
+
+@media (min-width: 1010px)
+{
+  #nav-main
+  {
+    padding-left: 150px;
+  }
 }
 
 .mat-tab-link

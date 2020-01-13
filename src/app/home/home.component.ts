@@ -1,9 +1,6 @@
 import { Component, OnInit, Pipe } from '@angular/core'
 import { DomSanitizer } from '@angular/platform-browser'
 
-// ha-ha
-// tslint:disable: max-line-length
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -25,11 +22,15 @@ export class HomeComponent implements OnInit {
     { name : 'Number of edges',               descHTML : 'Number of edges in the <a href="https://en.wikipedia.org/wiki/Control-flow_graph" target="blank">Control Flow Graph</a> of each program.'  },
   ]
 
-  optCall = `<pre style="width:90%;margin-left:32px;color:#000000;background:#f1f0f0;font-family:'Source Code Pro', monospace;">
-opt -mem2reg -O0 -instcount <span style="color:#0f6900; ">\</span>
-    -load <span style="color:#40015a; ">llvm-ep/build/VarCounter/VarCounter.so</span> -VarCounter <span style="color:#0f6900; ">\</span>
-    -load <span style="color:#40015a; ">llvm-ep/build/EdgeCounter/EdgeCounter.so</span> -EdgeCounter <span style="color:#0f6900; ">\</span>
-    -stats <span style="color:#44aadd;">-S</span> \${lnk_name} -disable-output <span style="color:#c00000; ">2</span><span style="color:#e34adc; ">&gt;</span><span style="color:#e34adc; ">&gt;</span> stats<span style="color:#400000; font-weight:bold; ">.</span>txt
+  optCall = `<pre style="width:auto;color:#000000;background:#f1f0f0;font-family:'Source Code Pro', monospace;">
+opt -mem2reg <span style="color:#0f6900; ">\</span>
+    -O0 <span style="color:#0f6900; ">\</span>
+    -instcount <span style="color:#0f6900; ">\</span>
+    -load <span style="color:#40015a; ">VarCounter.so</span> -VarCounter <span style="color:#0f6900; ">\</span>
+    -load <span style="color:#40015a; ">EdgeCounter.so</span> -EdgeCounter <span style="color:#0f6900; ">\</span>
+    -stats <span style="color:#0f6900; ">\</span>
+    <span style="color:#44aadd;">-S</span> \${lnk_name} <span style="color:#0f6900; ">\</span>
+    -disable-output <span style="color:#c00000; ">2</span><span style="color:#e34adc; ">&gt;</span><span style="color:#e34adc; ">&gt;</span> stats<span style="color:#400000; font-weight:bold; ">.</span>txt
       </pre>`
 
   constructor() {}
