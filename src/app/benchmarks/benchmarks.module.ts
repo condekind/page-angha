@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 
 import { BenchmarksRoutingModule } from './benchmarks-routing.module'
-import { BenchmarksComponent, Safe } from './benchmarks.component'
+import { BenchmarksComponent } from './benchmarks.component'
 import { DomSanitizer } from '@angular/platform-browser'
 
 import { MatSidenavModule } from '@angular/material/sidenav'
@@ -15,7 +15,7 @@ import { MatButtonModule } from '@angular/material/button'
 
 
 @NgModule({
-  declarations: [BenchmarksComponent, Safe],
+  declarations: [BenchmarksComponent],
   imports: [
     CommonModule,
     BenchmarksRoutingModule,
