@@ -7,15 +7,28 @@ import { Component, OnInit } from '@angular/core'
 })
 export class AppComponent implements OnInit {
 
-  lightTheme  = true
-  darkTheme   = false
+  lightTheme  = false
 
   toggleTheme = () => {
     this.lightTheme = !this.lightTheme
-    this.darkTheme = !this.darkTheme
+    if (this.lightTheme)
+    {
+      document.body.classList.remove('darkTheme')
+      document.body.classList.add('lightTheme')
+    }
+    else
+    {
+      document.body.classList.remove('lightTheme')
+      document.body.classList.add('darkTheme')
+    }
   }
 
-  constructor() { }
+  constructor() {
+    if (this.lightTheme)
+      document.body.classList.add('lightTheme')
+    else
+      document.body.classList.add('darkTheme')
+  }
 
   ngOnInit() {}
 }

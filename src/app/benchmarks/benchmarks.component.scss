@@ -1,7 +1,6 @@
 
 :host {
-  padding: 0em;
-  display: flex;
+  width: auto;
 }
 
 .example-headers-align .mat-expansion-panel-header-title,
@@ -14,13 +13,31 @@
   align-items: center;
 }
 
-mat-form-field
+.chart-img
 {
-  margin-right: 12px;
+  justify-self: center;
+  width: auto;
+  max-width: 100%;
 }
 
-.benchmark-link-bar
+.img-grid
 {
-  display: flex;
-  justify-content: flex-end;
+  display: grid;
+  grid-auto-flow: row;
+  grid-row-gap: 2em;
+  padding-top: 1.3em;
+}
+
+@media (min-width: 768px) {
+  .chart-img
+  {
+    justfy-self: center;
+    max-width: 100%;
+  }
+  .img-grid
+  {
+    grid-gap: 1em;
+    display: grid;
+    grid-template-columns: auto auto;
+  }
 }

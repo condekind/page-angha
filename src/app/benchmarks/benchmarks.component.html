@@ -20,8 +20,8 @@
 
 <!-- =========================== Benchmark list ===========================  -->
     <mat-accordion class="example-headers-align" multi="true">
-      <mat-expansion-panel *ngFor="let _ of benchmarks">
-        <mat-expansion-panel-header>
+      <mat-expansion-panel *ngFor="let _ of benchmarks" [style.height]="'auto'">
+        <mat-expansion-panel-header [collapsedHeight]="'100%'" [expandedHeight]="'100%'" [style.padding]="'1.5em'">
           <mat-panel-title>       {{ _.name }} </mat-panel-title>
           <mat-panel-description> {{ _.desc }} </mat-panel-description>
         </mat-expansion-panel-header>

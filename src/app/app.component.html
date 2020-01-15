@@ -1,5 +1,5 @@
 
-<mat-card class="card-app-wrapper" [class.darkTheme]="darkTheme" [class.lightTheme]="lightTheme">
+<mat-card class="card-app-wrapper" [class]="lightTheme ? 'lightTheme' : 'darkTheme'">
 
     <div id="div-header">
       <img id="img-header-logo" src="assets/angha_logo.png">
@@ -7,7 +7,7 @@
     </div>
 
     <!-- <nav mat-tab-nav-bar id="nav-main" [color]="colorToggle.value" [backgroundColor]="'accent'"> -->
-    <nav mat-tab-nav-bar id="nav-main" [color]="'accent'" dynamicHeight> <!-- A.K.A. The Mothership -->
+    <nav mat-tab-nav-bar id="nav-main" [color]="'accent'" [class]="lightTheme ? 'lightTheme' : 'darkTheme'"> <!-- A.K.A. The Mothership -->
       <a mat-tab-link routerLink="/home" routerLinkActive #homeAct="routerLinkActive" [active]="homeAct.isActive">Home</a>
       <a mat-tab-link routerLink="/benchmarks" routerLinkActive #benchmarksAct="routerLinkActive" [active]="benchmarksAct.isActive">Benchmarks</a>
       <a mat-tab-link routerLink="/explore" routerLinkActive #exploreAct="routerLinkActive" [active]="exploreAct.isActive">Explore</a>
@@ -16,5 +16,5 @@
   
   <router-outlet></router-outlet> <!-- Content of tabs is displayed here -->
     
-  <mat-slide-toggle id="themeToggle" [color]="'warn'" (change)="toggleTheme()"></mat-slide-toggle>
+  <mat-slide-toggle [checked]="'lightTheme'" [color]="'warn'" (change)="toggleTheme()"></mat-slide-toggle>
 </mat-card>

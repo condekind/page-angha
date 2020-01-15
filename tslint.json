@@ -22,6 +22,7 @@
       "app",
       "kebab-case"
     ],
+    "curly": false,
     "import-blacklist": [
       true,
       "rxjs/Rx"
@@ -73,6 +74,7 @@
       true,
       "single"
     ],
+    "one-line": false,
     "semicolon": [true, "never"],
     "trailing-comma": false,
     "no-conflicting-lifecycle": true,
