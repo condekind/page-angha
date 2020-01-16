@@ -20,6 +20,7 @@
           autotune compilers. The passes used in the extraction are:
         </p>
 
+        <!-- Code section showing opt pass flags -->
         <div [innerHTML]="optCall | safeHtml"></div>
 
         <p>
@@ -30,6 +31,7 @@
           the following program features:
         </p>
 
+<!-- ===================== Table with feature examples ===================== -->
         <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z2">
           <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
@@ -44,6 +46,8 @@
           <tr mat-header-row *matHeaderRowDef="cols; sticky: true"></tr>
           <tr mat-row *matRowDef="let _; columns: cols;"></tr>
         </table>
+<!-- ======================== End of examples table ======================== -->
+
       </mat-card-content>
     </mat-card>
 

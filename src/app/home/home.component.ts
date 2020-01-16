@@ -10,18 +10,9 @@ export class HomeComponent implements OnInit {
 
   opened: boolean
 
-  cols = ['name', 'descHTML']
+// ============== TODO: Store this hardcoded data somewhere else ==============
 
-  dataSource = [
-    { name : 'Number of store instructions',  descHTML : 'How many store operations appear in the LLVM representation of the program.'                                                               },
-    { name : 'Number of load instructions',   descHTML : 'How many load operations appear in the LLVM representation of the program.'                                                                },
-    { name : 'Number of basic blocks',        descHTML : 'Number of <a href="https://en.wikipedia.org/wiki/Basic_block" target="blank">basic blocks</a> in the LLVM representation of the program.'  },
-    { name : 'Number of instructions',        descHTML : 'Quantity of LLVM instructions in the intermediate representation of each program.'                                                         },
-    { name : 'Number of named variables',     descHTML : 'Quantity of SSA-form variables in the LLVM representation of each program.'                                                                },
-    { name : 'Number of variable uses',       descHTML : 'Sum of the number of times that each named variable appears as an operand in some instruction in the LLVM representation of the program.'  },
-    { name : 'Number of edges',               descHTML : 'Number of edges in the <a href="https://en.wikipedia.org/wiki/Control-flow_graph" target="blank">Control Flow Graph</a> of each program.'  },
-  ]
-
+// Code section showing opt pass flags
   optCall = `<pre style="width:auto;color:#000000;background:#f1f0f0;font-family:'Source Code Pro', monospace;">
 opt -mem2reg <span style="color:#0f6900; ">\</span>
     -O0 <span style="color:#0f6900; ">\</span>
@@ -33,18 +24,28 @@ opt -mem2reg <span style="color:#0f6900; ">\</span>
     -disable-output <span style="color:#c00000; ">2</span><span style="color:#e34adc; ">&gt;</span><span style="color:#e34adc; ">&gt;</span> stats<span style="color:#400000; font-weight:bold; ">.</span>txt
       </pre>`
 
+// Table with feature examples
+  cols = ['name', 'descHTML']
+  dataSource = [
+    { name : 'Number of store instructions',  descHTML : 'How many store operations appear in the LLVM representation of the program.'                                                               },
+    { name : 'Number of load instructions',   descHTML : 'How many load operations appear in the LLVM representation of the program.'                                                                },
+    { name : 'Number of basic blocks',        descHTML : 'Number of <a href="https://en.wikipedia.org/wiki/Basic_block" target="blank">basic blocks</a> in the LLVM representation of the program.'  },
+    { name : 'Number of instructions',        descHTML : 'Quantity of LLVM instructions in the intermediate representation of each program.'                                                         },
+    { name : 'Number of named variables',     descHTML : 'Quantity of SSA-form variables in the LLVM representation of each program.'                                                                },
+    { name : 'Number of variable uses',       descHTML : 'Sum of the number of times that each named variable appears as an operand in some instruction in the LLVM representation of the program.'  },
+    { name : 'Number of edges',               descHTML : 'Number of edges in the <a href="https://en.wikipedia.org/wiki/Control-flow_graph" target="blank">Control Flow Graph</a> of each program.'  },
+  ]
+// ============================================================================
+
   constructor() {}
 
   ngOnInit() {}
 }
 
+// Gimmick to unrustle Angular Jimmies' on that HTML above
 @Pipe({name: 'safeHtml'})
 export class Safe {
   constructor(private sanitizer: DomSanitizer) {}
-
-  transform(value: any, args?: any): any {
-    return this.sanitizer.bypassSecurityTrustHtml(value)
-    // return this.sanitizer.bypassSecurityTrustStyle(style);
-    // return this.sanitizer.bypassSecurityTrustXxx(style); - see docs
-  }
+  transform = (value: any, args?: any): any =>
+    this.sanitizer.bypassSecurityTrustHtml(value)
 }

@@ -7,10 +7,11 @@ import { BrowserAnimationsModule }  from '@angular/platform-browser/animations'
 import { MatTabsModule }            from '@angular/material/tabs'
 import { MatCardModule }            from '@angular/material/card'
 import { MatSlideToggleModule }     from '@angular/material/slide-toggle'
+import { MatMenuModule }            from '@angular/material/menu'
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -19,6 +20,7 @@ import { MatSlideToggleModule }     from '@angular/material/slide-toggle'
     MatTabsModule,
     MatCardModule,
     MatSlideToggleModule,
+    MatMenuModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -4,6 +4,7 @@
   "description": "Angha project page - http://cuda.dcc.ufmg.br/angha/",
   "main": "karma.conf.js",
   "scripts": {
+    "dev": "lite-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -36,6 +37,7 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
     "codelyzer": "^5.2.1",
+    "lite-server": "^2.5.4",
     "ts-node": "~7.0.0",
     "tslint": "^5.20.1",
     "typescript": "~3.5.3"

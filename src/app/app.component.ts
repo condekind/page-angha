@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core'
+import { OverlayContainer }  from '@angular/cdk/overlay';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core'
 })
 export class AppComponent implements OnInit {
 
-  lightTheme  = false
+  lightTheme  = true
 
   toggleTheme = () => {
     this.lightTheme = !this.lightTheme
@@ -23,7 +24,8 @@ export class AppComponent implements OnInit {
     }
   }
 
-  constructor() {
+  constructor(overlayContainer: OverlayContainer) {
+    overlayContainer.getContainerElement().classList.add('darkTheme')
     if (this.lightTheme)
       document.body.classList.add('lightTheme')
     else

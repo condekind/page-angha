@@ -1,4 +1,7 @@
 
+
+
+
 <mat-card class="card-app-wrapper" [class]="lightTheme ? 'lightTheme' : 'darkTheme'">
 
     <div id="div-header">
@@ -6,13 +9,19 @@
       <h1>The Angha Project</h1>
     </div>
 
-    <!-- <nav mat-tab-nav-bar id="nav-main" [color]="colorToggle.value" [backgroundColor]="'accent'"> -->
-    <nav mat-tab-nav-bar id="nav-main" [color]="'accent'" [class]="lightTheme ? 'lightTheme' : 'darkTheme'"> <!-- A.K.A. The Mothership -->
+    <!-- <nav mat-tab-nav-bar id="nav-main" [class]="lightTheme ? 'lightTheme' : 'darkTheme'"> -->
+    <nav mat-tab-nav-bar id="nav-main" [color]="'accent'"> <!-- A.K.A. The Mothership -->
       <a mat-tab-link routerLink="/home" routerLinkActive #homeAct="routerLinkActive" [active]="homeAct.isActive">Home</a>
-      <a mat-tab-link routerLink="/benchmarks" routerLinkActive #benchmarksAct="routerLinkActive" [active]="benchmarksAct.isActive">Benchmarks</a>
+      <a mat-tab-link [matMenuTriggerFor]="resourceMenu" [active]="benchmarksAct.isActive || crawlerAct.isActive || reconstructorAct.isActive || extractorAct.isActive">Resources</a>
+      <mat-menu #resourceMenu="matMenu">
+        <a mat-tab-link mat-menu-item routerLink="/benchmarks" routerLinkActive #benchmarksAct="routerLinkActive">Benchmarks</a>
+        <a mat-tab-link mat-menu-item routerLink="/crawler" routerLinkActive #crawlerAct="routerLinkActive">Crawler</a>
+        <a mat-tab-link mat-menu-item routerLink="/reconstructor" routerLinkActive #reconstructorAct="routerLinkActive">Reconstructor</a>
+        <a mat-tab-link mat-menu-item routerLink="/extractor" routerLinkActive #extractorAct="routerLinkActive">Function Extractor</a>
+      </mat-menu>
       <a mat-tab-link routerLink="/explore" routerLinkActive #exploreAct="routerLinkActive" [active]="exploreAct.isActive">Explore</a>
+      <a mat-tab-link routerLink="/about" routerLinkActive #aboutAct="routerLinkActive" [active]="aboutAct.isActive">About</a>
     </nav>
-
   
   <router-outlet></router-outlet> <!-- Content of tabs is displayed here -->
     

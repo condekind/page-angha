@@ -141,14 +141,10 @@ span.spacer
 .lightTheme
 {
   @include angular-material-theme($mlk-light-theme);
-  $background: map-get($mlk-light-theme, background);
-  background-color: mat-color($background, background);
 }
 .darkTheme
 {
   @include angular-material-theme($mlk-dark-theme);
-  $background: map-get($mlk-dark-theme, background);
-  background-color: mat-color($background, background);
 }
 
 // .mat-app-background
