@@ -147,6 +147,11 @@ span.spacer
   @include angular-material-theme($mlk-dark-theme);
 }
 
+.warning
+{
+  color: mat-color($mlk-red);
+}
+
 // .mat-app-background
 // {
 //   $background: map-get($mlk-dark-theme, background);

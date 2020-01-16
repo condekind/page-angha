@@ -21,10 +21,6 @@ const routes: Routes = [
     loadChildren: () => import('./crawler/crawler.module').then(m => m.CrawlerModule),
   },
   {
-    path: 'reconstructor',
-    loadChildren: () => import('./reconstructor/reconstructor.module').then(m => m.ReconstructorModule),
-  },
-  {
     path: 'extractor',
     loadChildren: () => import('./extractor/extractor.module').then(m => m.ExtractorModule),
   },

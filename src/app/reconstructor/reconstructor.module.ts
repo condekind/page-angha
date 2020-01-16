@@ -6,7 +6,7 @@ import { ReconstructorComponent } from './reconstructor.component'
 
 
 @NgModule({
-  declarations: [],
+  declarations: [ReconstructorComponent],
   imports: [
     CommonModule,
     ReconstructorRoutingModule,

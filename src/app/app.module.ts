@@ -8,6 +8,8 @@ import { MatTabsModule }            from '@angular/material/tabs'
 import { MatCardModule }            from '@angular/material/card'
 import { MatSlideToggleModule }     from '@angular/material/slide-toggle'
 import { MatMenuModule }            from '@angular/material/menu'
+import { MatButtonModule }          from '@angular/material/button'
+import { MatIconModule }            from '@angular/material/icon'
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { MatMenuModule }            from '@angular/material/menu'
     MatCardModule,
     MatSlideToggleModule,
     MatMenuModule,
+    MatButtonModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,1 +1,64 @@
-<p>crawler works!</p>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side" opened="false"><!-- L-MENU --></mat-sidenav>
+  <mat-sidenav-content>
+
+    <mat-card>
+      <mat-card-title style="display: flex">
+        <span class="spacer">Repository Crawler</span>
+        <a href="https://github.com/lac-dcc/Angha/tree/master/src/crawler" target="_blank"><img src="assets/icons/gh_dark.png" style="height:1.6em"></a>
+      </mat-card-title>
+      <mat-card-content>
+        <p>
+          The Repository Crawler is a JAVA application for mining programs from
+          the GitHub open-source code host. It builds a list of repositories
+          written in C and sorts it by popularity, i.e., by the GitHub stars
+          amount. The user defines the number of repositories to be cloned (the
+          length of the list). For each repository cloned, it is created a file
+          ABOUT.txt containing some informations for the user:
+        </p>
+
+
+        <mat-list style="padding-bottom: 1em;">
+          <!-- <mat-divider></mat-divider> -->
+          <mat-list-item [style.padding]="'0.2em'">– The original repository link </mat-list-item>
+          <!-- <mat-divider></mat-divider> -->
+          <mat-list-item [style.padding]="'0.2em'">– Date in which it was cloned </mat-list-item>
+          <!-- <mat-divider></mat-divider> -->
+          <mat-list-item [style.padding]="'0.2em'">– Number of source code files from </mat-list-item>
+          <!-- <mat-divider></mat-divider> -->
+        </mat-list>
+
+        <p>
+          To use Repository Crawler you will need to have JAVA JDK (version 1.8
+          or higher) installed.
+        </p>
+
+        <p>
+          <span class="warning">IMPORTANT:</span> if you intend to use Repository Crawler on a JAVA IDE, do
+          not forget to add the two libraries provided in your project.
+        </p>
+
+
+        <!-- Code: compile/run instructions -->
+        <div #codeBlock01></div><p></p>
+
+        <p>
+          After running, the cloned repositores are saved on the directory
+          "cloned_repos/repos".
+        </p>
+
+        <p>
+          Usually, big projects repositories contain a lot of files of various
+          types, so in order to delete anything that will not be useful, run the
+          cleanRepository script. It will recursively delete all the cloned files
+          which are not C source, header files or the ABOUT.txt file.
+        </p>
+
+        <!-- Code: clean instructions -->
+        <div #codeBlock02></div><p></p>
+
+      </mat-card-content>
+    </mat-card>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

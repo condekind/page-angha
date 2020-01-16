@@ -12,11 +12,11 @@
     <!-- <nav mat-tab-nav-bar id="nav-main" [class]="lightTheme ? 'lightTheme' : 'darkTheme'"> -->
     <nav mat-tab-nav-bar id="nav-main" [color]="'accent'"> <!-- A.K.A. The Mothership -->
       <a mat-tab-link routerLink="/home" routerLinkActive #homeAct="routerLinkActive" [active]="homeAct.isActive">Home</a>
-      <a mat-tab-link [matMenuTriggerFor]="resourceMenu" [active]="benchmarksAct.isActive || crawlerAct.isActive || reconstructorAct.isActive || extractorAct.isActive">Resources</a>
+      <a mat-tab-link [matMenuTriggerFor]="resourceMenu" [active]="benchmarksAct.isActive || crawlerAct.isActive || extractorAct.isActive">Resources</a>
       <mat-menu #resourceMenu="matMenu">
         <a mat-tab-link mat-menu-item routerLink="/benchmarks" routerLinkActive #benchmarksAct="routerLinkActive">Benchmarks</a>
         <a mat-tab-link mat-menu-item routerLink="/crawler" routerLinkActive #crawlerAct="routerLinkActive">Crawler</a>
-        <a mat-tab-link mat-menu-item routerLink="/reconstructor" routerLinkActive #reconstructorAct="routerLinkActive">Reconstructor</a>
+        <a mat-button href="https://github.com/ltcmelo/psychec/tree/d4eeadb461d7173008ac17950ae8203a93c04fab" target="_blank" rel="noreferrer noopener" (mouseover)="hover=true" (mouseleave)="hover=false" style="color: #fafafa;">Reconstructor <mat-icon>open_in_new</mat-icon></a>
         <a mat-tab-link mat-menu-item routerLink="/extractor" routerLinkActive #extractorAct="routerLinkActive">Function Extractor</a>
       </mat-menu>
       <a mat-tab-link routerLink="/explore" routerLinkActive #exploreAct="routerLinkActive" [active]="exploreAct.isActive">Explore</a>
