@@ -6,6 +6,7 @@ import { ExploreComponent } from './explore.component'
 
 import { MatSidenavModule } from '@angular/material/sidenav'
 import { MatCardModule } from '@angular/material/card'
+import { MatTooltipModule }         from '@angular/material/tooltip'
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { MatCardModule } from '@angular/material/card'
     ExploreRoutingModule,
     MatSidenavModule,
     MatCardModule,
+    MatTooltipModule,
   ]
 })
 export class ExploreModule { }

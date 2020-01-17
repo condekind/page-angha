@@ -40,7 +40,7 @@
 
 
         <!-- Code: compile/run instructions -->
-        <div #codeBlock01></div><p></p>
+        <span class="code-container"><div [appCodeBlock]="runInst"></div></span><p></p>
 
         <p>
           After running, the cloned repositores are saved on the directory
@@ -55,7 +55,7 @@
         </p>
 
         <!-- Code: clean instructions -->
-        <div #codeBlock02></div><p></p>
+        <span class="code-container"><div [appCodeBlock]="cleanInst"></div></span><p></p>
 
       </mat-card-content>
     </mat-card>

@@ -9,6 +9,8 @@ import { MatSidenavModule } from '@angular/material/sidenav'
 import { MatTableModule } from '@angular/material/table'
 import { MatCardModule } from '@angular/material/card'
 
+import { CodeBlockModule } from '../code-block/code-block.module'
+
 
 @NgModule({
   declarations: [HomeComponent, Safe],
@@ -18,6 +20,7 @@ import { MatCardModule } from '@angular/material/card'
     MatSidenavModule,
     MatTableModule,
     MatCardModule,
+    CodeBlockModule,
   ]
 })
 export class HomeModule { }

@@ -20,8 +20,7 @@
           autotune compilers. The passes used in the extraction are:
         </p>
 
-        <!-- Code section showing opt pass flags -->
-        <div [innerHTML]="optCall | safeHtml"></div>
+        <span class="code-container"><div [appCodeBlock]="optFlags"></div></span>
 
         <p>
           We provide charts relating different characteristics of the

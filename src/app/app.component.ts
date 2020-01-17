@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core'
-import { OverlayContainer }  from '@angular/cdk/overlay';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core'
+import { OverlayContainer }  from '@angular/cdk/overlay'
 
 @Component({
   selector: 'app-root',
@@ -23,6 +23,8 @@ export class AppComponent implements OnInit {
       document.body.classList.add('darkTheme')
     }
   }
+
+  fart = () => console.log('hehe')
 
   constructor(overlayContainer: OverlayContainer) {
     overlayContainer.getContainerElement().classList.add('darkTheme')

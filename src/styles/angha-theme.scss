@@ -13,16 +13,32 @@ $mlk-dgrey:   mat-palette($mat-grey, 800, 700, 900); // closest to #282923
 $mlk-light-theme: mat-light-theme($mlk-dgrey, $mlk-green, $mlk-orange);
 $mlk-dark-theme:   mat-dark-theme($mlk-dgrey, $mlk-green, $mlk-orange);
 
-p a:-webkit-any-link,
-tr a:-webkit-any-link
+a.noLinkColor,
+p a.noLinkColor:-webkit-any-link,
+tr a.noLinkColor:-webkit-any-link
 {
-  color: mat-color($mlk-blue);
+  color: inherit;
 }
 
-p a:-webkit-any-link:visited,
-tr a:-webkit-any-link
+a.noLinkColor:visited,
+p a.noLinkColor:-webkit-any-link:visited,
+tr a.noLinkColor:-webkit-any-link:visited
 {
-  color: mat-color($mlk-purple);
+  color: inherit;
+}
+
+a.anghaTheme,
+p a.anghaTheme:-webkit-any-link,
+tr a.anghaTheme:-webkit-any-link
+{
+  color: mat-color($mlk-orange);
+}
+
+a.anghaTheme:visited,
+p a.anghaTheme:-webkit-any-link:visited,
+tr a.anghaTheme:-webkit-any-link:visited
+{
+  color: mat-color($mlk-orange);
 }
 
 

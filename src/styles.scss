@@ -13,12 +13,6 @@
 @import url('https://fonts.googleapis.com/css?family=Inconsolata&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap');
 
-*
-{
-  font-family: 'Roboto', sans-serif;
-  //font-family: 'Ubuntu Mono', 'Source Code Pro', 'Roboto Mono', 'Inconsolata', monospace;
-}
-
 html,
 body
 {
@@ -31,14 +25,13 @@ p
 {
   padding-right: 3px;
   margin-bottom: 16px;
-}
-
-@media(min-width: 1010px)
-{
-  p
+  @media(min-width: 768px)
+  {
+    text-align: justify;
+  }
+  @media(min-width: 1010px)
   {
     font-size: 16px;
-    text-align: justify;
   }
 }
 
@@ -54,7 +47,6 @@ h1,h2,h3,h4,h5,h6
 
 mat-sidenav-container
 {
-  line-height: 1;
   width: 100%;
   height: auto;
 }
@@ -151,9 +143,3 @@ span.spacer
 {
   color: mat-color($mlk-red);
 }
-
-// .mat-app-background
-// {
-//   $background: map-get($mlk-dark-theme, background);
-//   background-color: mat-color($background, background);
-// }

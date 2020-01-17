@@ -47,12 +47,13 @@ h1
 
 .mat-tab-link
 {
-  color: mat-color($mlk-lgrey, lighter);
+  color: white;
+  opacity: 1;
 }
 
 #themeToggle
 {
-  position: absolute;
-  bottom: 1em;
+  position: fixed;
+  bottom: 1.7em;
   left: 1em;
 }
