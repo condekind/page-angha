@@ -38,7 +38,6 @@ export class CodeBlockDirective implements AfterViewInit {
     editor.setValue(this.text)
     editor.renderer['scrollBarH'].element.hidden = true
     editor.renderer['scrollBarV'].element.hidden = true
-    console.log(editor)
     editor.clearSelection()
     this.codeBlockRef.nativeElement.style.maxWidth = '95%'
     this.codeBlockRef.nativeElement.style.margin = 'auto'

@@ -6,7 +6,7 @@
       <mat-card-title>
         Available Benchmarks
       </mat-card-title>
-      <mat-card-subtitle>just like that</mat-card-subtitle>
+      <mat-card-subtitle></mat-card-subtitle>
       <mat-card-content>
         <p>
           We provide a list of benchmark suites, as well as some data on how
@@ -26,9 +26,9 @@
         {{ _.body }}
         <div style="display: flex;">
           <span class="spacer"></span>
-          <a class="noLinkColor" *ngIf="_.meta.downloadUrl" [href]="_.meta.downloadUrl" target="_blank"><mat-icon [style.color]="inherit">archive</mat-icon></a>
+          <a class="noLinkColor" *ngIf="_.meta.downloadUrl" [href]="_.meta.downloadUrl" target="_blank"><mat-icon>archive</mat-icon></a>
           <a class="noLinkColor" *ngIf="_.meta.gitHubUrl"   [href]="_.meta.gitHubUrl"   target="_blank"><img src="assets/icons/gh_dark.png" style="height:1.6em"></a>
-          <a class="noLinkColor" *ngIf="_.meta.paperUrl"    [href]="_.meta.paperUrl"    target="_blank"><mat-icon [style.color]="inherit">description</mat-icon></a>
+          <a class="noLinkColor" *ngIf="_.meta.paperUrl"    [href]="_.meta.paperUrl"    target="_blank"><mat-icon>description</mat-icon></a>
         </div>
         <div *ngIf="_.meta.chartUrlArray.length" [innerHTML]="chartGridMaker(_.meta)"></div>
       </mat-expansion-panel>

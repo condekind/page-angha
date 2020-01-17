@@ -1,5 +1,4 @@
-import { Component, OnInit, Pipe } from '@angular/core'
-import { DomSanitizer } from '@angular/platform-browser'
+import { Component, OnInit } from '@angular/core'
 
 @Component({
   selector: 'app-home',
@@ -37,12 +36,4 @@ export class HomeComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
-}
-
-// Gimmick to unrustle Angular Jimmies' on that HTML above
-@Pipe({name: 'safeHtml'})
-export class Safe {
-  constructor(private sanitizer: DomSanitizer) {}
-  transform = (value: any, args?: any): any =>
-    this.sanitizer.bypassSecurityTrustHtml(value)
 }

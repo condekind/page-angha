@@ -24,8 +24,6 @@ export class AppComponent implements OnInit {
     }
   }
 
-  fart = () => console.log('hehe')
-
   constructor(overlayContainer: OverlayContainer) {
     overlayContainer.getContainerElement().classList.add('darkTheme')
     if (this.lightTheme)
