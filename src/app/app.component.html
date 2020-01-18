@@ -1,12 +1,9 @@
 
-
-
-
-<mat-card class="card-app-wrapper" [class]="lightTheme ? 'lightTheme' : 'darkTheme'">
+<mat-card class="card-app-wrapper" [class]="lightTheme ? 'lightTheme' : 'darkTheme'" class="mat-typography">
 
     <div id="div-header">
       <img id="img-header-logo" src="assets/angha_logo.png">
-      <h1>The Angha Project</h1>
+      <h1>Angha Project</h1>
     </div>
 
     <nav mat-tab-nav-bar id="nav-main" [color]="'accent'"> <!-- A.K.A. The Mothership -->
@@ -77,7 +74,6 @@
       </a>
 
       <a mat-tab-link
-         [disabled]="true"
          routerLink="/about"
          routerLinkActive
          #aboutAct="routerLinkActive"

@@ -1,1 +1,19 @@
-<p>about works!</p>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side" opened="false"><!-- L-MENU --></mat-sidenav>
+  <mat-sidenav-content>
+
+    <mat-card> <!-- Team picture and Title -->
+      <mat-card-title style="display: flex;justify-content: center;">The Angha Team</mat-card-title>
+      <mat-card-content></mat-card-content>
+    </mat-card>
+
+    <div class="img-grid">
+      <mat-card class="chart-img" *ngFor="let _ of members">
+        <img mat-card-image class="bg-image" [src]="'assets/img/team/'+_.id+'.jpg'" alt="dragon nester">
+        <mat-card-title>     {{ _.name }}</mat-card-title>
+        <mat-card-content><p>{{ _.body }}</p></mat-card-content>
+      </mat-card>
+    </div>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

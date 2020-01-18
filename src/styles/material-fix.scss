@@ -1,9 +1,21 @@
+@import '~@angular/material/theming';
+
+
+// =============================== Typography =============================== //
+$angha-typography: mat-typography-config(
+  $font-family: 'Roboto, sans-serif'
+);
+
+// Override typography for all Angular Material, including mat-base-typography and all components.
+@include angular-material-typography($angha-typography);
+@include mat-core($angha-typography);
 
 // ================================== Card ================================== //
 mat-card
 {
   margin-bottom: 1em;
 }
+
 
 // ============================== Slide Toggle ============================== //
 mat-slide-toggle

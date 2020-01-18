@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common'
 
 import { BenchmarksRoutingModule } from './benchmarks-routing.module'
 import { BenchmarksComponent } from './benchmarks.component'
-import { DomSanitizer } from '@angular/platform-browser'
 
 import { MatSidenavModule } from '@angular/material/sidenav'
 import { MatCardModule } from '@angular/material/card'

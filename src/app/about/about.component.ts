@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, AfterContentInit, Input } from '@angular/core'
+import teamref from '../../assets/info/teamref.json'
 
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.scss']
 })
-export class AboutComponent implements OnInit {
+export class AboutComponent implements AfterContentInit {
 
-  constructor() { }
+  members
 
-  ngOnInit() {
+  constructor() { this.members = teamref.data }
+
+  ngAfterContentInit() {
   }
 
 }

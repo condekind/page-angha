@@ -2,7 +2,7 @@
 // ============================ Material Theming ============================ //
 @import '~@angular/material/theming';
 @import 'styles/angha-theme.scss';
-@include mat-core();
+@import 'styles/material-fix.scss';
 
 // Predefined color palettes: https://material.io/design/color/
 
@@ -80,19 +80,6 @@ mat-sidenav-content.vrule
 //   width: 150px;
 //   padding: 2em;
 // }
-
-
-// ============================== Cards ============================== //
-mat-card
-{
-  margin-bottom: 1em;
-}
-
-// ============================== Slide Toggle ============================== //
-mat-slide-toggle
-{
-  z-index: 2;
-}
 
 // ================================== Misc ================================== //
 span.spacer

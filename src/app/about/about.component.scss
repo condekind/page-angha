@@ -1,0 +1,41 @@
+mat-sidenav-content
+{
+  padding: 1em 2em 1em 2em;
+  max-width: 70em;
+}
+
+.bg-image
+{
+  height: 28em;
+  background-position: center;
+  background-size: cover;
+}
+
+.chart-img
+{
+  justify-self: center;
+  width: auto;
+  max-width: 100%;
+}
+
+.img-grid
+{
+  display: grid;
+  grid-auto-flow: row;
+  grid-row-gap: 2em;
+  padding-top: 1.3em;
+}
+
+@media (min-width: 768px) {
+  .chart-img
+  {
+    justfy-self: center;
+    max-width: 100%;
+  }
+  .img-grid
+  {
+    grid-gap: 1em;
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+}

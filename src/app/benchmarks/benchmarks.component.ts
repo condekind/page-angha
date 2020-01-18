@@ -1,4 +1,4 @@
-import { Component, AfterContentInit, Pipe } from '@angular/core'
+import { Component, AfterContentInit } from '@angular/core'
 import benchref from '../../assets/info/benchref.json'
 
 @Component({
