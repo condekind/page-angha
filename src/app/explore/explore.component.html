@@ -13,7 +13,10 @@
       <mat-card-content>
 
         <!-- Ace code editor -->
-        <div matTooltip="Coming soon!" matTooltipPosition="above" #userInput style="height: 30em"></div>
+        <div #userInput style="height: 30em"></div>
+        <button mat-button mat-stroked-button (click)="compile()">Compile</button>
+        <hr style="margin: 1em;">
+        <div #resOutput style="height: 30em"></div>
 
       </mat-card-content>
     </mat-card>
