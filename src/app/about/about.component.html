@@ -10,7 +10,12 @@
     <div class="img-grid">
       <mat-card class="chart-img" *ngFor="let _ of members">
         <img mat-card-image class="bg-image" [src]="'assets/img/team/'+_.id+'.jpg'" alt="dragon nester">
-        <mat-card-title>     {{ _.name }}</mat-card-title>
+        <mat-card-title style="display: flex; justify-content: space-between;">
+          <div>{{ _.name }}</div>
+          <a class="noLinkColor" *ngIf="_.meta.www" [href]="_.meta.www" target="_blank"><mat-icon>language</mat-icon></a>
+          <!-- <ng-template [appSvgIcons]="true" *ngIf="_.meta.gitHubUrl"><a class="noLinkColor" [href]="_.meta.gitHubUrl" target="_blank"><mat-icon svgIcon="github_s"></mat-icon></a></ng-template>
+          <ng-template [appSvgIcons]="true" *ngIf="_.meta.lattesUrl"><a class="noLinkColor" [href]="_.meta.lattesUrl" target="_blank"><mat-icon svgIcon="lattes_s"></mat-icon></a></ng-template> -->
+        </mat-card-title>
         <mat-card-content><p>{{ _.body }}</p></mat-card-content>
       </mat-card>
     </div>
