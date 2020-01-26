@@ -8,6 +8,8 @@ import { MatSidenavModule } from '@angular/material/sidenav'
 import { MatTooltipModule } from '@angular/material/tooltip'
 import { ExploreRoutingModule } from './explore-routing.module'
 import { ExploreComponent } from './explore.component'
+import { MatTabsModule } from '@angular/material/tabs';
+import { CodeBlockModule } from '../code-block/code-block.module'
 
 
 @NgModule({
@@ -20,6 +22,8 @@ import { ExploreComponent } from './explore.component'
     MatTooltipModule,
     MatButtonModule,
     MatDividerModule,
+    MatTabsModule,
+    CodeBlockModule,
     HttpClientModule,
   ]
 })

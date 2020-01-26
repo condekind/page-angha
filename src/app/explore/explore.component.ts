@@ -3,19 +3,7 @@ import { HttpClient } from '@angular/common/http'
 import { Editor, edit } from 'brace'
 import 'brace/theme/monokai'
 import 'brace/mode/c_cpp'
-
-interface BenchmarkCode {
-  benchName: string
-  path: string
-  features: {
-    numOfMul: number
-    numOfLoops: number
-    numOfEdges: number
-  }
-  content: {
-    code: string
-  }
-}
+import { BenchmarkCode } from './benchmark-code'
 
 @Component({
   selector: 'app-explore',
@@ -24,16 +12,48 @@ interface BenchmarkCode {
 })
 export class ExploreComponent implements AfterViewInit {
 
-  userEditor: Editor
-  resEditor: Editor
-
   @ViewChild('userInput', { static: true }) userInput: ElementRef<HTMLDivElement>
-  @ViewChild('resOutput', { static: true }) resOutput: ElementRef<HTMLDivElement>
+  userEditor: Editor
+  items: BenchmarkCode[] = [
+    {
+      benchName: 'ecstasy',
+      path: '/path/to/ecstasy',
+      features: {
+        edgecounter_number_of_edges: 10,
+        varcounter_number_of_named_variables: 2,
+        varcounter_number_of_variable_uses_using_getnumuses: 7
+      },
+      content: { code: 'FDHALISUDHF\nJNFDK\u0004\n' }
+    },
+    {
+      benchName: 'death',
+      path: '/path/to/death',
+      features: {
+        edgecounter_number_of_edges: 10,
+        varcounter_number_of_named_variables: 2,
+        varcounter_number_of_variable_uses_using_getnumuses: 7
+      },
+      content: {
+        code: 'FDHALISUDHF\nJNFDK\u0004\n'
+      }
+    },
+    {
+      benchName: 'clodoveu',
+      path: '/path/to/clodoveu',
+      features: {
+        edgecounter_number_of_edges: 10,
+        varcounter_number_of_named_variables: 2,
+        varcounter_number_of_variable_uses_using_getnumuses: 7
+      },
+      content: {
+        code: 'FDHALISUDHF\nJNFDK\u0004\n'
+      }
+    }]
 
   constructor(private httpClient: HttpClient) { }
 
   async compile() {
-    const res = await this.httpClient.post<BenchmarkCode[]>('compile.php', this.userEditor.getValue()).toPromise()
+    this.items = await this.httpClient.post<BenchmarkCode[]>('compile.php', this.userEditor.getValue()).toPromise()
   }
 
   ngAfterViewInit() {
@@ -51,13 +71,6 @@ export class ExploreComponent implements AfterViewInit {
       '}\n'
     )
     editorInput.clearSelection()
-
-    const editorOutput = this.resEditor = edit(this.resOutput.nativeElement)
-    editorOutput.setTheme('ace/theme/monokai')
-    editorOutput.session.setMode('ace/mode/c_cpp')
-    editorOutput.$blockScrolling = Infinity
-    editorOutput.setValue('')
-    editorOutput.clearSelection()
   }
 
 }

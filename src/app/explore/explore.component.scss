@@ -1,6 +1,16 @@
 
+@import '../../styles/angha-theme.scss';
+
 :host
 {
   padding: 0em;
   min-width: 650px;
+}
+
+mat-tab-group {
+  background: mat-color($mlk-dgrey);
+}
+
+mat-tab-group::ng-deep .mat-tab-label-content {
+  color: white;
 }

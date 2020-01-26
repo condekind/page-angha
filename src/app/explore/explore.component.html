@@ -1,5 +1,7 @@
 <mat-sidenav-container class="explore-sn-container" hasBackdrop="false">
-  <mat-sidenav #sidenav mode="side" opened="false"><!-- L-MENU --></mat-sidenav>
+  <mat-sidenav #sidenav mode="side" opened="false">
+    <!-- L-MENU -->
+  </mat-sidenav>
 
   <mat-sidenav-content class="explore-sn-content">
 
@@ -16,7 +18,16 @@
         <div #userInput style="height: 30em"></div>
         <button mat-button mat-stroked-button (click)="compile()">Compile</button>
         <hr style="margin: 1em;">
-        <div #resOutput style="height: 30em"></div>
+        <mat-tab-group color="accent">
+          <mat-tab [label]="item.benchName" *ngFor="let item of items">
+            <div [appCodeBlock]="item.content.code" [textLines]="10"></div>
+            <div style="display: grid">
+              <button mat-button color="accent" style="margin: 1em; margin-left: auto;" mat-raised-button>
+                View features
+              </button>
+            </div>
+          </mat-tab>
+        </mat-tab-group>
 
       </mat-card-content>
     </mat-card>
