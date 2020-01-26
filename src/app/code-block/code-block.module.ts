@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core'
-import { CodeBlockDirective } from '../code-block.directive'
+import { CodeBlockDirective } from './code-block.directive'
 
 @NgModule({
   declarations: [CodeBlockDirective],
