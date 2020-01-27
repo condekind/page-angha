@@ -3,7 +3,8 @@ import { HttpClient } from '@angular/common/http'
 import { Editor, edit } from 'brace'
 import 'brace/theme/monokai'
 import 'brace/mode/c_cpp'
-import { BenchmarkCode } from './benchmark-code'
+import { BenchmarkContainer } from './benchmark-code'
+
 
 @Component({
   selector: 'app-explore',
@@ -53,7 +54,7 @@ export class ExploreComponent implements AfterViewInit {
   constructor(private httpClient: HttpClient) { }
 
   async compile() {
-    this.items = await this.httpClient.post<BenchmarkCode[]>('compile.php', this.userEditor.getValue()).toPromise()
+    this.items = await this.httpClient.post<BenchmarkContainer>('compile.php', this.userEditor.getValue()).toPromise()
   }
 
   ngAfterViewInit() {
