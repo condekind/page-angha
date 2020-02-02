@@ -3,11 +3,11 @@
 #div-header
 {
   display: flex;
-  vertical-align: middle;
+  align-items: center;
   padding: 16px 0px 8px 32px;
   color: mat-color($mlk-lgrey);
   background: mat-color($mlk-dgrey, darker);
-  line-height: 1;
+  font-size: 2em;
 }
 
 #img-header-logo
@@ -15,6 +15,7 @@
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
   width: 96px;
+  margin-right: .5em;
 }
 
 .card-app-wrapper
@@ -22,14 +23,6 @@
   padding: 0;
   margin: 0;
   height: 100%;
-}
-
-h1
-{
-  font-size: 2em;
-  padding-top: 24px;
-  padding-left: 24px;
-  //padding-left: 48px
 }
 
 #nav-main
