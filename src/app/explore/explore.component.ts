@@ -15,7 +15,7 @@ export class ExploreComponent implements AfterViewInit {
 
   @ViewChild('userInput', { static: true }) userInput: ElementRef<HTMLDivElement>
   userEditor: Editor
-  items: BenchmarkCode[] = [
+  items = [
     {
       benchName: 'ecstasy',
       path: '/path/to/ecstasy',
@@ -54,7 +54,7 @@ export class ExploreComponent implements AfterViewInit {
   constructor(private httpClient: HttpClient) { }
 
   async compile() {
-    this.items = await this.httpClient.post<BenchmarkContainer>('compile.php', this.userEditor.getValue()).toPromise()
+
   }
 
   ngAfterViewInit() {
