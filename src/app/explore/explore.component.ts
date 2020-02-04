@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http'
 import { Editor, edit } from 'brace'
 import 'brace/theme/monokai'
 import 'brace/mode/c_cpp'
-import { BenchmarkContainer } from './benchmark-code'
+import { BenchmarkContainer } from './model'
 
 
 @Component({
