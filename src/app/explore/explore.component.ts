@@ -1,6 +1,7 @@
 import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { Editor, edit } from 'brace'
+import { Response } from './model';
 import 'brace/theme/monokai'
 import 'brace/mode/c_cpp'
 
