@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http'
 import { Editor, edit } from 'brace'
 import 'brace/theme/monokai'
 import 'brace/mode/c_cpp'
-import { BenchmarkContainer } from './model'
 
 
 @Component({
@@ -15,46 +14,18 @@ export class ExploreComponent implements AfterViewInit {
 
   @ViewChild('userInput', { static: true }) userInput: ElementRef<HTMLDivElement>
   userEditor: Editor
-  items = [
-    {
-      benchName: 'ecstasy',
-      path: '/path/to/ecstasy',
-      features: {
-        edgecounter_number_of_edges: 10,
-        varcounter_number_of_named_variables: 2,
-        varcounter_number_of_variable_uses_using_getnumuses: 7
-      },
-      content: { code: 'FDHALISUDHF\nJNFDK\u0004\n' }
-    },
-    {
-      benchName: 'death',
-      path: '/path/to/death',
-      features: {
-        edgecounter_number_of_edges: 10,
-        varcounter_number_of_named_variables: 2,
-        varcounter_number_of_variable_uses_using_getnumuses: 7
-      },
-      content: {
-        code: 'FDHALISUDHF\nJNFDK\u0004\n'
-      }
-    },
-    {
-      benchName: 'clodoveu',
-      path: '/path/to/clodoveu',
-      features: {
-        edgecounter_number_of_edges: 10,
-        varcounter_number_of_named_variables: 2,
-        varcounter_number_of_variable_uses_using_getnumuses: 7
-      },
-      content: {
-        code: 'FDHALISUDHF\nJNFDK\u0004\n'
-      }
-    }]
+
+  items: Response | undefined
 
   constructor(private httpClient: HttpClient) { }
 
   async compile() {
-
+    try {
+      this.items = await this.httpClient.post<Response>('http://vermeer.llp.dcc.ufmg.br:8080/similar-code-search/', this.userEditor.getValue()).toPromise()
+      console.log(this.items);
+    } catch (e) {
+      console.error(e)
+    }
   }
 
   ngAfterViewInit() {
@@ -72,6 +43,9 @@ export class ExploreComponent implements AfterViewInit {
       '}\n'
     )
     editorInput.clearSelection()
+    setTimeout(() => {
+      this.compile()
+    })
   }
 
 }

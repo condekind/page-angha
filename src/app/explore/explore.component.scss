@@ -1,16 +1,19 @@
 
 @import '../../styles/angha-theme.scss';
 
+$background: map-get($mlk-light-theme, background);
+
 :host
 {
   padding: 0em;
   min-width: 650px;
 }
 
-mat-tab-group {
-  background: mat-color($mlk-dgrey);
+table {
+  background-color: map-get($background, card);
 }
 
-mat-tab-group::ng-deep .mat-tab-label-content {
-  color: white;
+.table-container {
+  overflow: auto;
+  @include mat-elevation(8);
 }
