@@ -40,7 +40,7 @@ export class ExploreComponent implements AfterViewInit {
       'int main(int argc, char *argv[])\n' +
       '{\n' +
       '  int a, b = 0;\n' +
-      '  print("Hello china!\\n Free Hong Kong!\\n");\n' +
+      '  printf("Hello world!!\\n");\n' +
       '}\n'
     )
     editorInput.clearSelection()
