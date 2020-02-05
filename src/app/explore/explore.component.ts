@@ -1,7 +1,7 @@
 import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { Editor, edit } from 'brace'
-import { Response } from './model';
+import { Response } from './model'
 import 'brace/theme/monokai'
 import 'brace/mode/c_cpp'
 
@@ -22,8 +22,8 @@ export class ExploreComponent implements AfterViewInit {
 
   async compile() {
     try {
-      this.items = await this.httpClient.post<Response>('http://vermeer.llp.dcc.ufmg.br:8080/similar-code-search/', this.userEditor.getValue()).toPromise()
-      console.log(this.items);
+      this.items = await this.httpClient.post<Response>('http://localhost:8080/similar-code-search/', this.userEditor.getValue()).toPromise()
+      console.log(this.items)
     } catch (e) {
       console.error(e)
     }

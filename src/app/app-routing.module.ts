@@ -19,10 +19,10 @@ const routes: Routes = [
     path: 'extractor',
     loadChildren: () => import('./extractor/extractor.module').then(m => m.ExtractorModule),
   },
-  {
-    path: 'explore',
-    loadChildren: () => import('./explore/explore.module').then(m => m.ExploreModule),
-  },
+  // {
+  //   path: 'explore',
+  //   loadChildren: () => import('./explore/explore.module').then(m => m.ExploreModule),
+  // },
   {
     path: 'about',
     loadChildren: () => import('./about/about.module').then(m => m.AboutModule),
