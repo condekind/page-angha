@@ -6,9 +6,8 @@ mat-sidenav-content
 
 .bg-image
 {
+  object-fit: cover;
   height: 28em;
-  background-position: center;
-  background-size: cover;
 }
 
 .chart-img
