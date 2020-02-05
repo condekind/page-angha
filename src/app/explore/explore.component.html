@@ -1,5 +1,7 @@
 <mat-sidenav-container class="explore-sn-container" hasBackdrop="false">
-  <mat-sidenav #sidenav mode="side" opened="false"><!-- L-MENU --></mat-sidenav>
+  <mat-sidenav #sidenav mode="side" opened="false">
+    <!-- L-MENU -->
+  </mat-sidenav>
 
   <mat-sidenav-content class="explore-sn-content">
 
@@ -13,7 +15,36 @@
       <mat-card-content>
 
         <!-- Ace code editor -->
-        <div matTooltip="Coming soon!" matTooltipPosition="above" #userInput style="height: 30em"></div>
+        <div #userInput style="height: 30em"></div>
+        <button mat-button mat-stroked-button (click)="compile()">Compile</button>
+
+        <div class="table-container">
+          <table *ngIf="items">
+            <thead>
+              <tr>
+                <th rowspan="2">Pass</th>
+                <th rowspan="2">Feature</th>
+                <th *ngFor="let bench of items.closestBenchs">
+                  {{bench.suite}}
+                </th>
+              </tr>
+              <tr>
+                <th *ngFor="let bench of items.closestBenchs">
+                  {{bench.name}}
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let feature of items.features; index as i">
+                <td>{{feature.pass}}</td>
+                <td>{{feature.name}}</td>
+                <td *ngFor="let bench of items.closestBenchs">
+                  {{bench.featureValues[i]}}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
       </mat-card-content>
     </mat-card>

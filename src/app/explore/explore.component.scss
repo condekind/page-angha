@@ -1,6 +1,19 @@
 
+@import '../../styles/angha-theme.scss';
+
+$background: map-get($mlk-light-theme, background);
+
 :host
 {
   padding: 0em;
   min-width: 650px;
+}
+
+table {
+  background-color: map-get($background, card);
+}
+
+.table-container {
+  overflow: auto;
+  @include mat-elevation(8);
 }
