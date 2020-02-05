@@ -9,7 +9,7 @@
 
     <div class="img-grid">
       <mat-card class="chart-img" *ngFor="let _ of members">
-        <img mat-card-image class="bg-image" [src]="'assets/img/team/'+_.id+'.jpg'" alt="dragon nester">
+        <img mat-card-image class="bg-image" [src]="'assets/img/team/'+_.id+'.jpg'" alt="{{_.name}}'s Picture">
         <mat-card-title style="display: flex; justify-content: space-between;">
           <div>{{ _.name }}</div>
           <span style="display: flex; justify-content: space-between;">
