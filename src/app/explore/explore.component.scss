@@ -24,7 +24,8 @@ td {
   border-top: 1px solid mat-color($mlk-orange);
 }
 
-.bgrey {
+td:nth-of-type(odd),
+th:nth-of-type(odd) {
 	background: mat-color($mlk-lgrey);
 }
 

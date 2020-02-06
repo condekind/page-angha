@@ -22,25 +22,20 @@
           <table *ngIf="items">
             <thead>
               <tr>
-                <th rowspan="2" class="bgrey">Pass</th>
-                <th rowspan="2">Feature</th>
-                <th rowspan="2" class="bgrey">Your Code</th>
-                <th *ngFor="let bench of items.closestBenchs; odd as odd" [class.bgrey]="odd">
-                  {{bench.suite}}
-                </th>
-              </tr>
-              <tr>
-                <th *ngFor="let bench of items.closestBenchs; odd as odd" [class.bgrey]="odd">
-                  {{bench.name}}
+                <th>Pass</th>
+                <th>Feature</th>
+                <th>Your Code</th>
+                <th *ngFor="let bench of items.closestBenchs">
+                  <fa-icon [icon]="faInfoCircle" title="{{bench.suite}}/{{bench.name}}"></fa-icon>
                 </th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let feature of items.features; index as i">
-                <td class="bgrey">{{feature.pass}}</td>
+                <td>{{feature.pass}}</td>
                 <td>{{feature.name}}</td>
-                <td class="bgrey">{{items.featureValues[i]}}</td>
-                <td *ngFor="let bench of items.closestBenchs; odd as odd" [class.bgrey]="odd">
+                <td>{{items.featureValues[i]}}</td>
+                <td *ngFor="let bench of items.closestBenchs" title="{{bench.suite}}/{{bench.name}}">
                   {{bench.featureValues[i]}}
                 </td>
               </tr>

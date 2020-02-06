@@ -1,12 +1,13 @@
-import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
-import { Editor, edit } from 'brace'
-import { Response } from './model'
-import 'brace/theme/monokai'
-import 'brace/mode/c_cpp'
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core'
 import { MatDialog } from '@angular/material/dialog'
-import { LoadingComponent } from '../loading/loading.component'
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons'
+import { edit, Editor } from 'brace'
+import 'brace/mode/c_cpp'
+import 'brace/theme/monokai'
 import { environment } from '../../environments/environment'
+import { LoadingComponent } from '../loading/loading.component'
+import { Response } from './model'
 
 
 @Component({
@@ -15,6 +16,8 @@ import { environment } from '../../environments/environment'
   styleUrls: ['./explore.component.scss']
 })
 export class ExploreComponent implements AfterViewInit {
+
+  faInfoCircle = faInfoCircle
 
   @ViewChild('userInput', { static: true }) userInput: ElementRef<HTMLDivElement>
   userEditor: Editor
