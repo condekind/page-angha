@@ -6,6 +6,7 @@ import 'brace/theme/monokai'
 import 'brace/mode/c_cpp'
 import { MatDialog } from '@angular/material/dialog'
 import { LoadingComponent } from '../loading/loading.component'
+import { environment } from '../../environments/environment'
 
 
 @Component({
@@ -27,7 +28,7 @@ export class ExploreComponent implements AfterViewInit {
   async compile() {
     const ref = this.matDialog.open(LoadingComponent, { disableClose: true })
     try {
-      this.items = await this.httpClient.post<Response>(searchUrl, this.userEditor.getValue()).toPromise()
+      this.items = await this.httpClient.post<Response>(environment.searchUrl, this.userEditor.getValue()).toPromise()
       console.log(this.items)
     } catch (e) {
       console.error(e)
