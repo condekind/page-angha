@@ -1,8 +1,6 @@
 
 @import '../../styles/angha-theme.scss';
 
-$background: map-get($mlk-light-theme, background);
-
 :host
 {
   padding: 0em;
@@ -16,7 +14,6 @@ $background: map-get($mlk-light-theme, background);
 
 table {
   border-collapse: collapse;
-  background-color: map-get($background, card);
 }
 
 td {
@@ -26,7 +23,7 @@ td {
 
 td:nth-of-type(odd),
 th:nth-of-type(odd) {
-	background: mat-color($mlk-lgrey);
+	background: rgba(0,0,0,.1)
 }
 
 td,th {
