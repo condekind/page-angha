@@ -4,6 +4,8 @@ import { Editor, edit } from 'brace'
 import { Response } from './model'
 import 'brace/theme/monokai'
 import 'brace/mode/c_cpp'
+import { MatDialog } from '@angular/material/dialog'
+import { LoadingComponent } from '../loading/loading.component'
 
 
 @Component({
@@ -18,14 +20,19 @@ export class ExploreComponent implements AfterViewInit {
 
   items: Response | undefined
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(
+    private httpClient: HttpClient,
+    private matDialog: MatDialog) { }
 
   async compile() {
+    const ref = this.matDialog.open(LoadingComponent, { disableClose: true })
     try {
       this.items = await this.httpClient.post<Response>('http://localhost:8080/similar-code-search/', this.userEditor.getValue()).toPromise()
       console.log(this.items)
     } catch (e) {
       console.error(e)
+    } finally {
+      ref.close()
     }
   }
 

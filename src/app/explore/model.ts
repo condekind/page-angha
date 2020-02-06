@@ -6,7 +6,7 @@ export interface Feature {
 export interface Benchmark {
   name: string
   suite: string
-  content: string
+  files: string[]
   featureValues: number[]
 }
 

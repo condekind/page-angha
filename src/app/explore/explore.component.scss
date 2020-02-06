@@ -9,11 +9,25 @@ $background: map-get($mlk-light-theme, background);
   min-width: 650px;
 }
 
-table {
-  background-color: map-get($background, card);
-}
-
 .table-container {
   overflow: auto;
   @include mat-elevation(8);
+}
+
+table {
+  border-collapse: collapse;
+  background-color: map-get($background, card);
+}
+
+td {
+  text-align: center;
+  border-top: 1px solid mat-color($mlk-orange);
+}
+
+.bgrey {
+	background: mat-color($mlk-lgrey);
+}
+
+td,th {
+  padding: .5em;
 }
