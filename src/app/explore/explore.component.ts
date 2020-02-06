@@ -27,7 +27,7 @@ export class ExploreComponent implements AfterViewInit {
   async compile() {
     const ref = this.matDialog.open(LoadingComponent, { disableClose: true })
     try {
-      this.items = await this.httpClient.post<Response>('http://localhost:8080/similar-code-search/', this.userEditor.getValue()).toPromise()
+      this.items = await this.httpClient.post<Response>(searchUrl, this.userEditor.getValue()).toPromise()
       console.log(this.items)
     } catch (e) {
       console.error(e)
