@@ -6,7 +6,7 @@ import { environment } from '../../environments/environment'
 import { LoadingComponent } from '../loading/loading.component'
 import { Response } from './model'
 import { CodeBlockDirective } from '../code-block/code-block.directive'
-import AceAjax from 'brace'
+import { Annotation } from 'brace'
 
 
 @Component({
@@ -21,16 +21,16 @@ export class ExploreComponent {
   items: Response | undefined
   error = ''
 
-  exampleCode = `
+  sampleCode = `
 #include <stdlib.h>
-#include <stdio.h
+#include <stdio.h>
 
 int main(int argc, char *argv[])
 {
   int a, b = 0;
-  printf("Hello world!!\\n")
+  printf("Hello world!!\\n");
 }
-  `
+`
 
   constructor(
     private httpClient: HttpClient,
@@ -38,10 +38,9 @@ int main(int argc, char *argv[])
 
   async compile(editor: CodeBlockDirective) {
     const ref = this.matDialog.open(LoadingComponent, { disableClose: true })
-    const annotations: AceAjax.Annotation[] = []
+    const annotations: Annotation[] = []
     try {
       this.items = await this.httpClient.post<Response>(environment.searchUrl, editor.getSession().getValue()).toPromise()
-      console.log(this.items)
       this.error = ''
     } catch (e) {
       this.items = undefined
@@ -63,7 +62,6 @@ int main(int argc, char *argv[])
       }
     } finally {
       ref.close()
-      console.log(annotations)
       editor.getSession().setAnnotations(annotations)
     }
   }
