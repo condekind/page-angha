@@ -2,11 +2,10 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http'
 import { Component } from '@angular/core'
 import { MatDialog } from '@angular/material/dialog'
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons'
+import { Annotation } from 'brace'
 import { environment } from '../../environments/environment'
 import { LoadingComponent } from '../loading/loading.component'
 import { Response } from './model'
-import { CodeBlockDirective } from '../code-block/code-block.directive'
-import { Annotation } from 'brace'
 
 
 @Component({
@@ -20,6 +19,7 @@ export class ExploreComponent {
 
   items: Response | undefined
   error = ''
+  annotations: Annotation[] = []
 
   sampleCode = `
 #include <stdlib.h>
@@ -36,11 +36,11 @@ int main(int argc, char *argv[])
     private httpClient: HttpClient,
     private matDialog: MatDialog) { }
 
-  async compile(editor: CodeBlockDirective) {
+  async compile(code: string) {
     const ref = this.matDialog.open(LoadingComponent, { disableClose: true })
-    const annotations: Annotation[] = []
+    this.annotations = []
     try {
-      this.items = await this.httpClient.post<Response>(environment.searchUrl, editor.getSession().getValue()).toPromise()
+      this.items = await this.httpClient.post<Response>(environment.searchUrl, code).toPromise()
       this.error = ''
     } catch (e) {
       this.items = undefined
@@ -56,13 +56,12 @@ int main(int argc, char *argv[])
             const column = +match[2]
             const type = match[3] as 'error' | 'warning'
             const text = match[4]
-            annotations.push({ column, row, type, text })
+            this.annotations = [...this.annotations, { column, row, type, text }]
           }
         }
       }
     } finally {
       ref.close()
-      editor.getSession().setAnnotations(annotations)
     }
   }
 

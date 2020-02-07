@@ -11,10 +11,10 @@
         <mat-card-subtitle>Paste your code below:</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
-        <div #userInput style="height: 30em" [appCodeBlock]="sampleCode" [readOnly]="false" [textLines]="15" #editor="appCodeBlock"></div>
+        <div style="height: 30em" [appCodeBlock]="sampleCode" [annotations]="annotations" [readOnly]="false" [textLines]="15" #editor="appCodeBlock"></div>
       </mat-card-content>
       <mat-card-actions align="end">
-        <button mat-button mat-stroked-button style="margin: 1em 0 1em auto" (click)="compile(editor)">Compile</button>
+        <button mat-button mat-stroked-button style="margin: 1em 0 1em auto" (click)="compile(editor.getValue())">Compile</button>
       </mat-card-actions>
     </mat-card>
     <mat-card *ngIf="this.error">
