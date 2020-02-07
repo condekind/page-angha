@@ -1,0 +1,20 @@
+.file-label,
+h2,
+h3 {
+  max-width: 200px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+h2,
+h3 {
+  max-width: 80vw;
+}
+
+.wait {
+  overflow: hidden;
+  display: grid;
+  place-content: center;
+  margin-top: 1em;
+}

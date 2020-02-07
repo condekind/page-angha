@@ -29,3 +29,8 @@ th:nth-of-type(odd) {
 td,th {
   padding: .5em;
 }
+
+th>button {
+  margin-right: -0.3em;
+  margin-left: -0.3em;
+}

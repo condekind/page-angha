@@ -29,38 +29,41 @@
     </mat-card>
 
     <mat-card *ngIf="items">
-        <mat-card-header>
-          <mat-card-title>
-            Extracted features
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <div class="table-container">
-            <table>
-              <thead>
-                <tr>
-                  <th>Pass</th>
-                  <th>Feature</th>
-                  <th>Your Code</th>
-                  <th *ngFor="let bench of items.closestBenchs">
-                    <fa-icon [icon]="faInfoCircle" title="{{bench.suite}}/{{bench.name}}"></fa-icon>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let feature of items.features; index as i">
-                  <td>{{feature.pass}}</td>
-                  <td>{{feature.name}}</td>
-                  <td>{{items.featureValues[i]}}</td>
-                  <td *ngFor="let bench of items.closestBenchs" title="{{bench.suite}}/{{bench.name}}">
-                    {{bench.featureValues[i]}}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </mat-card-content>
-      </mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          Extracted features
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Pass</th>
+                <th>Feature</th>
+                <th>Your Code</th>
+                <th *ngFor="let bench of items.closestBenchs">
+                  <button mat-button mat-icon-button (click)="browseBench(bench)"
+                    title="{{bench.suite}}/{{bench.name}}">
+                    <fa-icon [icon]="faInfoCircle"></fa-icon>
+                  </button>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let feature of items.features; index as i">
+                <td>{{feature.pass}}</td>
+                <td>{{feature.name}}</td>
+                <td>{{items.featureValues[i]}}</td>
+                <td *ngFor="let bench of items.closestBenchs" title="{{bench.suite}}/{{bench.name}}">
+                  {{bench.featureValues[i]}}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </mat-card-content>
+    </mat-card>
 
   </mat-sidenav-content>
 </mat-sidenav-container>

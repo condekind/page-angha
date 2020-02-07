@@ -5,7 +5,8 @@ import { faInfoCircle } from '@fortawesome/free-solid-svg-icons'
 import { Annotation } from 'brace'
 import { environment } from '../../environments/environment'
 import { LoadingComponent } from '../loading/loading.component'
-import { Response } from './model'
+import { BrowseBenchComponent } from './browse-bench/browse-bench.component'
+import { Benchmark, Response } from './model'
 
 
 @Component({
@@ -35,6 +36,10 @@ int main(int argc, char *argv[])
   constructor(
     private httpClient: HttpClient,
     private matDialog: MatDialog) { }
+
+  browseBench(bench: Benchmark) {
+    this.matDialog.open(BrowseBenchComponent, { data: { bench } })
+  }
 
   async compile(code: string) {
     const ref = this.matDialog.open(LoadingComponent, { disableClose: true })

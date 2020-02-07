@@ -1,0 +1,20 @@
+<h2 mat-dialog-title>{{bench.suite}}</h2>
+<h3 mat-dialog-subtitle>{{bench.name}}</h3>
+<div mat-dialog-content>
+  <mat-tab-group color="warn">
+    <mat-tab *ngFor="let file of bench.files">
+      <ng-template mat-tab-label>
+        <span class="file-label" [title]="file">{{file}}</span>
+      </ng-template>
+      <div [appCodeBlock]="contents[file]" [textLines]="10"></div>
+      <ng-template #wait>
+        <div class="wait">
+          <mat-spinner color="accent"></mat-spinner>
+        </div>
+      </ng-template>
+    </mat-tab>
+  </mat-tab-group>
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close cdkFocusInitial>Close</button>
+</div>
