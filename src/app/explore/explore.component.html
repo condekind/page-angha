@@ -6,45 +6,61 @@
   <mat-sidenav-content class="explore-sn-content">
 
     <mat-card>
-
       <mat-card-header>
         <mat-card-title>Try it!</mat-card-title>
         <mat-card-subtitle>Paste your code below:</mat-card-subtitle>
       </mat-card-header>
-
       <mat-card-content>
-
-        <!-- Ace code editor -->
-        <div #userInput style="height: 30em"></div>
-        <button mat-button mat-stroked-button (click)="compile()">Compile</button>
-
-        <div class="table-container">
-          <table *ngIf="items">
-            <thead>
-              <tr>
-                <th>Pass</th>
-                <th>Feature</th>
-                <th>Your Code</th>
-                <th *ngFor="let bench of items.closestBenchs">
-                  <fa-icon [icon]="faInfoCircle" title="{{bench.suite}}/{{bench.name}}"></fa-icon>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let feature of items.features; index as i">
-                <td>{{feature.pass}}</td>
-                <td>{{feature.name}}</td>
-                <td>{{items.featureValues[i]}}</td>
-                <td *ngFor="let bench of items.closestBenchs" title="{{bench.suite}}/{{bench.name}}">
-                  {{bench.featureValues[i]}}
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
+        <div #userInput style="height: 30em" [appCodeBlock]="exampleCode" [readOnly]="false" [textLines]="15" #editor="appCodeBlock"></div>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button mat-button mat-stroked-button style="margin: 1em 0 1em auto" (click)="compile(editor)">Compile</button>
+      </mat-card-actions>
+    </mat-card>
+    <mat-card *ngIf="this.error">
+      <mat-card-header>
+        <mat-card-title>
+          Compiler's output
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div style="min-height: 4em; width: 100%" [appCodeBlock]="error"></div>
       </mat-card-content>
     </mat-card>
+
+    <mat-card *ngIf="items">
+        <mat-card-header>
+          <mat-card-title>
+            Extracted features
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Pass</th>
+                  <th>Feature</th>
+                  <th>Your Code</th>
+                  <th *ngFor="let bench of items.closestBenchs">
+                    <fa-icon [icon]="faInfoCircle" title="{{bench.suite}}/{{bench.name}}"></fa-icon>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let feature of items.features; index as i">
+                  <td>{{feature.pass}}</td>
+                  <td>{{feature.name}}</td>
+                  <td>{{items.featureValues[i]}}</td>
+                  <td *ngFor="let bench of items.closestBenchs" title="{{bench.suite}}/{{bench.name}}">
+                    {{bench.featureValues[i]}}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </mat-card-content>
+      </mat-card>
 
   </mat-sidenav-content>
 </mat-sidenav-container>

@@ -2,25 +2,24 @@ import { Directive, ElementRef, Input, OnChanges, SimpleChanges } from '@angular
 import { edit, Editor } from 'brace'
 import 'brace/theme/monokai'
 import 'brace/mode/sh.js'
+import 'brace/mode/c_cpp'
 
 @Directive({
-  selector: '[appCodeBlock]'
+  selector: '[appCodeBlock]',
+  exportAs: 'appCodeBlock'
 })
 export class CodeBlockDirective implements OnChanges {
 
   private editor: Editor
   @Input() textLines: number | 'auto' = 'auto'
   @Input() appCodeBlock: string | undefined
+  @Input() readOnly = true
 
   constructor(ref: ElementRef<HTMLElement>) {
     const el = ref.nativeElement
-    el.style.maxWidth = '95%'
-    el.style.margin = 'auto'
-    el.style.marginBottom = '1em'
-
     const editor = this.editor = edit(el)
     editor.setOptions({
-      readOnly: true,
+      readOnly: this.readOnly,
       showGutter: true,
       highlightGutterLine: false,
       highlightActiveLine: false,
@@ -30,10 +29,14 @@ export class CodeBlockDirective implements OnChanges {
       fontSize: '1em',
       fontFamily: '"Monaco", "Menlo", "Ubuntu Mono", "Source Code Pro", "Inconsolata", "Consolas", monospace'
     })
-    editor.renderer['$cursorLayer'].element.style.display = 'none'
+    // editor.renderer['$cursorLayer'].element.style.display = 'none'
     editor.$blockScrolling = Infinity
     editor.renderer['scrollBarH'].element.hidden = true
     editor.renderer['scrollBarV'].element.hidden = true
+  }
+
+  getSession() {
+    return this.editor.getSession()
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -50,5 +53,7 @@ export class CodeBlockDirective implements OnChanges {
       this.editor.setOption('minLines', this.textLines)
       this.editor.setOption('maxLines', this.textLines)
     }
+
+    this.editor.setOption('readOnly', this.readOnly)
   }
 }
