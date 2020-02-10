@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core'
 import { Benchmark } from '../model'
 import { MAT_DIALOG_DATA } from '@angular/material/dialog'
+import { HttpClient } from '@angular/common/http'
 
 @Component({
   selector: 'app-browse-bench',
@@ -12,15 +13,20 @@ export class BrowseBenchComponent implements OnInit {
   bench: Benchmark
   contents: { [key: string]: string } = {}
 
-  constructor(@Inject(MAT_DIALOG_DATA) { bench }) {
+  constructor(
+    private httpClient: HttpClient,
+    @Inject(MAT_DIALOG_DATA) { bench }
+  ) {
     this.bench = bench
   }
 
   async ngOnInit() {
     const { suite, name } = this.bench
     for (const file of this.bench.files) {
-      const res = await fetch(`suites/${suite}/${name}/${file}`)
-      this.contents[file] = await res.text()
+      this.contents[file] = await this.httpClient.get(
+        `suites/${suite}/${name}/${file}`,
+        { responseType: 'text' }
+      ).toPromise()
     }
   }
 
