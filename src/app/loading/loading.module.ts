@@ -13,7 +13,6 @@ import { LoadingComponent } from './loading.component'
     MatDialogModule,
     MatProgressSpinnerModule
   ],
-  exports: [MatDialogModule, LoadingComponent],
-  entryComponents: [LoadingComponent]
+  exports: [MatDialogModule, LoadingComponent]
 })
 export class LoadingModule { }

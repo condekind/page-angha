@@ -30,7 +30,6 @@ import { ExploreComponent } from './explore.component'
     LoadingModule,
     CodeBlockModule,
     HttpClientModule,
-  ],
-  entryComponents: [BrowseBenchComponent]
+  ]
 })
 export class ExploreModule { }
