@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "page-angha"
+    }
+  },
+  "defaultProject": "page-angha",
+  "cli": {
+    "analytics": false
+  }
 }
