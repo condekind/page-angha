@@ -23,7 +23,7 @@
         </p>
 
         <p>
-          IMPORTANT: Keep in mind that the plugin's goal is to deal with not-compilable
+          <span class="warning">IMPORTANT:</span> Keep in mind that the plugin's goal is to deal with not-compilable
           standalone C files. This means that even if the file is missing definitions,
           header files, etc, the plugin will still run. As long as it can find a node
           in the program's Abstract Syntax Tree for a function definition, it will
@@ -60,7 +60,7 @@ cmake ../ -DLLVM_DIR=${LLVM_BUILD_DIR}/lib/cmake/llvm -DClang_DIR=${LLVM_BUILD_D
         <app-code-block>
           <![CDATA[
 PLUGIN_LIB=<path_to_repo>/build/libFunctionExtractor.so
-clang -cc1 -load $PLUGIN_LIB -plugin -extract-funcs <input_file> -fsyntax-only
+clang -cc1 -load $PLUGIN_LIB -plugin extract-funcs <input_file> -fsyntax-only
 ]]>
         </app-code-block>
 
