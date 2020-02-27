@@ -13,9 +13,9 @@
         <mat-card-title style="display: flex; justify-content: space-between;">
           <div>{{ _.name }}</div>
           <span style="display: flex; justify-content: space-between;">
-            <a class="noLinkColor" *ngIf="_.meta.www" [href]="_.meta.www" target="_blank" rel="noopener" [style.paddingLeft]="'0.2em'"><mat-icon>language</mat-icon></a>
-            <a class="noLinkColor" *ngIf="_.meta.gitHubUrl" [href]="_.meta.gitHubUrl" target="_blank" rel="noopener" [style.paddingLeft]="'0.2em'"><fa-icon [icon]="faGithub"></fa-icon></a>
-            <a class="noLinkColor" *ngIf="_.meta.lattesUrl" [href]="_.meta.lattesUrl" target="_blank" rel="noopener" [style.paddingLeft]="'0.2em'"><fa-icon [icon]="faAddressCard"></fa-icon></a>
+            <a class="noLinkColor" *ngIf="_.meta.www" [href]="_.meta.www" target="_blank" [style.paddingLeft]="'0.2em'"><mat-icon>language</mat-icon></a>
+            <a class="noLinkColor" *ngIf="_.meta.gitHubUrl" [href]="_.meta.gitHubUrl" target="_blank" [style.paddingLeft]="'0.2em'"><fa-icon [icon]="faGithub"></fa-icon></a>
+            <a class="noLinkColor" *ngIf="_.meta.lattesUrl" [href]="_.meta.lattesUrl" target="_blank" [style.paddingLeft]="'0.2em'"><fa-icon [icon]="faAddressCard"></fa-icon></a>
           </span>
         </mat-card-title>
         <mat-card-content><p>{{ _.body }}</p></mat-card-content>
