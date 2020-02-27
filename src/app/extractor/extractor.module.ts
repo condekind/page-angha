@@ -5,6 +5,7 @@ import { ExtractorComponent } from './extractor.component'
 import { MatSidenavModule } from '@angular/material/sidenav'
 import { MatCardModule } from '@angular/material/card'
 import { MatListModule } from '@angular/material/list'
+import { FontAwesomeModule }  from '@fortawesome/angular-fontawesome'
 import { CodeBlockModule } from '../code-block/code-block.module'
 
 
@@ -17,6 +18,7 @@ import { CodeBlockModule } from '../code-block/code-block.module'
     MatSidenavModule,
     MatCardModule,
     MatListModule,
+    FontAwesomeModule,
     CodeBlockModule,
   ]
 })

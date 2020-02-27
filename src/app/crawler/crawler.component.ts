@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core'
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
 
 @Component({
   selector: 'app-crawler',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core'
   styleUrls: ['./crawler.component.scss']
 })
 export class CrawlerComponent implements OnInit{
+  
+  faGithub = faGithub
 
   runInst = `cd <path-to-this-repository>
 cd src/crawler/

@@ -10,6 +10,7 @@ import { MatTableModule } from '@angular/material/table'
 import { MatExpansionModule } from '@angular/material/expansion'
 import { MatIconModule } from '@angular/material/icon'
 import { MatButtonModule } from '@angular/material/button'
+import { FontAwesomeModule }  from '@fortawesome/angular-fontawesome'
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { MatButtonModule } from '@angular/material/button'
     MatExpansionModule,
     MatIconModule,
     MatButtonModule,
+    FontAwesomeModule,
   ]
 })
 export class BenchmarksModule { }

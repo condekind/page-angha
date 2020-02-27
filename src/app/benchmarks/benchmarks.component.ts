@@ -1,5 +1,6 @@
 import { Component, AfterContentInit } from '@angular/core'
 import benchref from '../../assets/info/benchref.json'
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
 
 @Component({
   selector: 'app-benchmarks',
@@ -9,6 +10,7 @@ import benchref from '../../assets/info/benchref.json'
 export class BenchmarksComponent implements AfterContentInit {
 
   benchmarks
+  faGithub = faGithub
   dataReady = false
 
   // Python > JS

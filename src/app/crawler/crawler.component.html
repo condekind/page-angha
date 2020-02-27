@@ -3,12 +3,12 @@
   <mat-sidenav-content>
 
     <mat-card>
-        <h1 mat-card-title style="display: flex">
-          Repository Crawler
-          <a style="margin-left: auto" href="https://github.com/lac-dcc/Angha/tree/master/src/crawler" target="_blank">
-            <img src="assets/icons/gh_dark.png" style="height:1.6em">
-          </a>
-        </h1>
+      <h1 mat-card-title style="display: flex; justify-content: space-between;">
+        <div>Repository Crawler</div>
+        <span style="display: flex; justify-content: space-between;">
+          <a class="noLinkColor" href="https://github.com/lac-dcc/Angha/tree/master/src/crawler" target="_blank"><fa-icon [icon]="faGithub"></fa-icon></a>
+        </span>
+      </h1>
       <mat-card-content>
         <p>
           The Repository Crawler is a JAVA application for mining programs from

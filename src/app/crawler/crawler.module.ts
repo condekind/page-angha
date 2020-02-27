@@ -9,6 +9,7 @@ import { MatCardModule }        from '@angular/material/card'
 import { MatListModule }        from '@angular/material/list'
 import { MatDividerModule }     from '@angular/material/divider'
 import { MatIconModule }        from '@angular/material/icon'
+import { FontAwesomeModule }    from '@fortawesome/angular-fontawesome'
 
 import { CodeBlockModule }      from '../code-block/code-block.module'
 
@@ -22,6 +23,7 @@ import { CodeBlockModule }      from '../code-block/code-block.module'
     MatCardModule,
     MatListModule,
     MatIconModule,
+    FontAwesomeModule,
     CodeBlockModule,
   ]
 })
