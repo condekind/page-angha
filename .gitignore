@@ -4,6 +4,7 @@
 
 # compiled output
 /dist
+/dist.zip
 /tmp
 /out-tsc
 # Only exists if Bazel was run
