@@ -10,7 +10,7 @@
           source repositories. To this end, we download programs from these
           repositories, split them into individual functions and reconstruct
           missing declarations to ensure that they compile. This page contains
-          530K samples of programs that we have generated in this way. You can
+          over 1 million samples of programs generated that way. You can
           compile them all into object files using clang or gcc. Additionally,
           we provide all the machinery for those interested in producing
           more benchmarks. For comparison, we also provide actual C benchmarks,
@@ -22,12 +22,28 @@
 
         <span class="code-container"><div style="margin-bottom: 1em" [appCodeBlock]="optFlags"></div></span>
 
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card>
+      <h2 mat-card-title>Technical Report</h2>
+      <mat-card-content>
+        A technical report is available here:
+        <a class="anghaTheme" href="http://lac.dcc.ufmg.br/pubs/TechReports/LaC_TechReport012020.pdf" target="_blank" rel="noopener">
+          Automatic Synthesis of Compilable C Benchmarks from Open Source Repositories
+        </a>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card>
+      <h2 mat-card-title>Benchmark Analysis</h2>
+      <mat-card-content>
         <p>
-          We provide charts relating different characteristics of the
+          We provide charts relating different characteristics of some of the
           benchmarks available in this page. Inside each collection featured
-          on the "Available Benchmarks" section, click the 'data analysis'
-          link to have access to them. These charts show relations between
-          the following program features:
+          in the "Resources -> Benchmarks" section, expand the panels to
+          visualize said charts. They highlight relations between the following
+          program features:
         </p>
 
 <!-- ===================== Table with feature examples ===================== -->
