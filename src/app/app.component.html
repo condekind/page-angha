@@ -74,6 +74,24 @@
         Explore
       </a>
 
+      <a #jj="matMenuTrigger"
+         [matMenuTriggerFor]="caseStudiesMenu"
+         mat-tab-link
+         [active]="chordAnalysisAct.isActive">
+       Case Studies
+      </a>
+
+      <mat-menu #caseStudiesMenu="matMenu">
+        <div>
+          <a mat-menu-item
+          routerLink="/chordAnalysis"
+          routerLinkActive
+          #chordAnalysisAct="routerLinkActive">
+          Chordality Analysis
+          </a>
+        </div>
+      </mat-menu>
+
       <a mat-tab-link
          routerLink="/about"
          routerLinkActive

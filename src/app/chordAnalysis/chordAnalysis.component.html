@@ -1,0 +1,179 @@
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side" opened="false"><!-- L-MENU --></mat-sidenav>
+  <mat-sidenav-content>
+
+    <mat-card>
+      <h1 mat-card-title>Chordality Analysis</h1>
+      <mat-card-content>
+        <p>
+          An interference graph is a way of mapping a program to a graph. This graph has a vertex for each variable
+          in the program, and edges connect variables that are simultaneously alive [1]. This graph is used by register allocator
+           algorithms based on graph coloring, for instance, Iterated Register Coalescing [2], and Chaitin’s algorithm [3].
+          Chaitin also used interference graphs to prove that the register assignment problem is NP-Complete, by reducing graph
+          coloring to it in 1982.
+        </p>
+        <p>
+          In 2005, Pereira and Palsberg [1] observed that the interference graphs of real programs tend to be chordal.
+          Their results show a percentage of 95.5% of chordal graphs for the programs from the run-time library of standard
+          Java 1.5. A graph is chordal if every cycle formed by four or more edges contains a chord, that is, an edge connecting
+          two nodes in the cycle but which is not part of the cycle. A chordal graph can also be defined as a graph that has no
+          induced subgraph isomorphic to C<sub>n</sub> , where C<sub>n</sub>  is the cycle with N>3. Chordal graphs are interesting for
+          Computer Science since several graph problems known to be NP-Complete can be solved in polynomial time for chordal graphs,
+           for instance, maximum clique maximum independent set and minimum covering by cliques [4]. Especially, the optimal
+           coloring of a chordal graph G=(V,E) can be computed in O(|V| + |E|) time [1].
+        </p>
+        <p>
+          Here we present an experiment done with the Angha-Bench largest suite (1 million compilable functions) to verify
+          the percentage of interference graphs that are chordal.
+        </p>
+
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card>
+      <h1 mat-card-title>Methodology</h1>
+      <mat-card-content>
+        <p>
+          To execute this experiment, we implemented an algorithm that performs two steps:<br></p>
+          <p><b>1. </b>build the interference graph of a program.<br>
+          <b>2. </b>check whether this graph is chordal.<br>
+        </p>
+
+        <p>
+          In the construction of the interference graph, we simply add a vertex for each variable (virtual registers) found in the
+          code, and for all of these vertices, we check if its live range overlaps with some other vertice. In the positive case,
+          we add an edge connecting the corresponding vertices.  To represent the graph, we utilize an adjacency list.
+        </p>
+
+        <p>
+         To check if a graph is chordal, we use the definition of Simplicial Elimination Ordering. A Simplicial Elimination Ordering
+         is a bijection σ: V(G) &rarr; {{ '{' }}1 . . . |V|{{ '}' }}, such that every vertex v<sub>i</sub> is a simplicial vertex in
+         the subgraph induced by {{ '{' }}v<sub>1</sub>, . . . , v<sub>i</sub> {{ '}' }}. We say that a vertex v &isin; V is simplicial
+         in a graph G=(V,E) if its neighborhood in G is a clique. In turn, a clique is a set of vertices in which every two vertices
+         are adjacent. Based on the Dirac’s theorem[5], which states that:
+       </p>
+       <p>
+        <i>“An undirected graph without self-loops is chordal if and only if it has a simplicial elimination ordering.”</i>
+       </p>
+
+       <p>
+         we used the Maximum Cardinality Search algorithm [6] to produce a sequence S={{ '{' }}v<sub>1</sub>, …, v<sub>n</sub>{{ '}' }}
+          of vertices for each interference graph. Then, for each vertex v<sub>i</sub> &isin; S, we verify if it is simplicial
+          according to the criterion mentioned above.
+      </p>
+
+      <p>
+        All the code was inserted into the LLVM basic register allocator. That way, we are able to access the program’s machine
+        function in the SSA deconstruction phase, and our algorithm runs before the register allocation itself. You can find the
+        source code
+        <a class="anghaTheme" href="https://github.com/JWesleySM/Chordality-Analysis" target="_blank">
+          here
+        </a>.
+      </p>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card>
+      <h1 mat-card-title>Results</h1>
+      <mat-card-content>
+        <p>
+          As mentioned earlier, we used for this experiment on the largest suite of benchmarks from Angha-Bench, which totals 1033890
+          programs that have a non-empty interference graph. Of these, 986323 interference graphs are chordal, while 47567 are not.
+          It gives us a percentage of 95,4% of chordality. As we can see in the charts below, as the size of the programs grows, the
+          percentage of non-chordal graphs increases as well, however, its highest value is around  20%. It is worth emphasizing that
+           for programs with a larger number of basic blocks, we have fewer samples. On average the programs have 7.92 basic blocks,
+           with a standard deviation of 43.52 and a median value of 6. This justifies the non-linear behavior of the growth of this
+           rate for programs with more than 60 basic blocks, for example. The same occurs in relation to the number of instructions,
+           in which the mean is 61.6, the standard deviation is 81.41 and the median is 36.
+        </p>
+
+        <div class="img-grid">
+            <img class="chart-img" [src]="'assets/img/charts/non_chordal_X_bb.png'" alt="Percentage of chordal graphs by number of basic blocks">
+            <img class="chart-img" [src]="'assets/img/charts/non_chordal_X_ic.png'" alt="Percentage of chordal graphs by number of instructions">
+        </div>
+
+        <br><p>
+          On average, the interference graph has 28.33 nodes, with a standard deviation of 37.7 and a median value of 17. Regarding
+          the number of edges, the average is 16.33, with a standard deviation of 43.52 and a median value of 6. The charts below show
+           us some relations between different characteristics of the programs and the number of vertices in the interference graph.
+           Both axes are in log scale.
+        </p>
+
+        <br><p>
+          <img mat-card-image class="bg-image" [src]="'assets/img/charts/regression_ig_vertices.png'" alt="Relation between four different features and the number of vertices in the interference graph">
+        </p>
+
+        <p>
+          As we can see, the number of vertices in the interference graphs are related to the number of instructions and variables
+          of the program, as well as the number of uses of variables. In both cases, the value of the coefficient of determination
+          is very close to one. This result is expected given what the vertices of the interference graph represent. In relation to
+          the number of basic blocks, this coefficient is lower,  since (in this case) it does not matter the way the instructions
+          appear in the bytecode, but the amount of them.
+        </p>
+
+        <p>
+          The charts below show the relation between the same program characteristics discussed above and the number of edges of
+          the interference graphs. We can observe that all the coefficients of determination are low, that is, the number of the
+          edges in an interference graph cannot be explained by any of those features. Again, the number of basic blocks proved to
+          be even less related to the interference graphs themselves, having the coefficient close to zero.
+        </p>
+
+        <br><p>
+          <img mat-card-image class="bg-image" [src]="'assets/img/charts/regression_ig_edges.png'" alt="Relation between four different features and the number of edges in the interference graph">
+        </p>
+
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card>
+      <mat-card-content>
+        <p>
+          As an extra result, we gathered the size of the largest clique in all the graphs. In an interference graph, the largest clique represents
+          the maximum number of variables alive at the same time, therefore the number of registers needed to color the correspondent program. The
+          chart below shows the cumulative distribution of maximum clique sizes. On average, the programs have a maximum clique of 3.7 vertices, with
+          a standard deviation of 5.5 and a median value of 3. In our database of 1033890, we have observed that 87.96% ( 908882 samples) of the
+          programs can be compiled with 5 registers, and 98% (1013212 samples) can be compiled with 10 registers.
+        </p>
+
+        <br>
+        <mat-card-title style="justify-content: center;">
+          <img class="chart-img" style="width: 50%; margin-left: 160px;" [src]="'assets/img/charts/max_clique_ecdf.png'" alt="Cumulative distribution of maximum clique sizes">
+        </mat-card-title>
+
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card>
+      <h1 mat-card-title>References</h1>
+      <mat-card-content>
+        <p>
+          [1] - PEREIRA, Fernando Magno Quintao; PALSBERG, Jens. Register allocation via coloring of chordal graphs.
+          In: <b>Asian Symposium on Programming Languages and Systems</b>. Springer, Berlin, Heidelberg, 2005. p. 315-329.
+        </p>
+        <p>
+          [2] - GEORGE, Lal; APPEL, Andrew W. Iterated register coalescing. <b>ACM Transactions on Programming Languages and Systems
+          (TOPLAS)</b>, v. 18, n. 3, p. 300-324, 1996.
+        </p>
+        <p>
+          [3] - CHAITIN, Gregory J. Register allocation & spilling via graph coloring. <b>ACM Sigplan Notices</b>, v. 17, n. 6,
+          p. 98-101, 1982.
+        </p>
+        <p>
+          [4] - GAVRIL, Fănică. Algorithms for minimum coloring, maximum clique, minimum covering by cliques, and maximum
+          independent set of a chordal graph. <b>SIAM Journal on Computing</b>, v. 1, n. 2, p. 180-187, 1972.
+        </p>
+        <p>
+          [5] - DIRAC, Gabriel Andrew. On rigid circuit graphs. In: <b>Abhandlungen aus dem Mathematischen Seminar der
+          Universität Hamburg</b>. Springer-Verlag, 1961. p. 71-76.
+        </p>
+        <p>
+          [6] - TARJAN, Robert E.; YANNAKAKIS, Mihalis. Simple linear-time algorithms to test chordality of graphs,
+          test acyclicity of hypergraphs, and selectively reduce acyclic hypergraphs. <b>SIAM Journal on computing</b>, v. 13,
+          n. 3, p. 566-579, 1984.
+        </p>
+
+      </mat-card-content>
+    </mat-card>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

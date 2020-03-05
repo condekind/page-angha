@@ -24,6 +24,10 @@ const routes: Routes = [
     loadChildren: () => import('./explore/explore.module').then(m => m.ExploreModule),
   },
   {
+    path: 'chordAnalysis',
+    loadChildren: () => import('./chordAnalysis/chordAnalysis.module').then(m => m.ChordAnalysisModule),
+  },
+  {
     path: 'about',
     loadChildren: () => import('./about/about.module').then(m => m.AboutModule),
   },
