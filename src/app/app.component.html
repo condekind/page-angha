@@ -77,7 +77,7 @@
       <a #jj="matMenuTrigger"
          [matMenuTriggerFor]="caseStudiesMenu"
          mat-tab-link
-         [active]="chordAnalysisAct.isActive">
+         [active]="chordAnalysisAct.isActive || staticPropertiesAct.isActive ">
        Case Studies
       </a>
 
@@ -88,6 +88,13 @@
           routerLinkActive
           #chordAnalysisAct="routerLinkActive">
           Chordality Analysis
+          </a>
+
+          <a mat-menu-item
+          routerLink="/staticProperties"
+          routerLinkActive
+          #staticPropertiesAct="routerLinkActive">
+          Static Properties
           </a>
         </div>
       </mat-menu>

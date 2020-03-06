@@ -28,6 +28,10 @@ const routes: Routes = [
     loadChildren: () => import('./chordAnalysis/chordAnalysis.module').then(m => m.ChordAnalysisModule),
   },
   {
+    path: 'staticProperties',
+    loadChildren: () => import('./staticProperties/staticProperties.module').then(m => m.StaticPropertiesModule),
+  },
+  {
     path: 'about',
     loadChildren: () => import('./about/about.module').then(m => m.AboutModule),
   },

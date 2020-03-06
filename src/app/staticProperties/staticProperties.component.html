@@ -1,0 +1,95 @@
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side" opened="false"><!-- L-MENU --></mat-sidenav>
+  <mat-sidenav-content>
+
+    <mat-card>
+      <h1 mat-card-title>Static Properties</h1>
+      <mat-card-content>
+        <p>
+          In the words of Dyeret <i>et al.</i>, <i>“mining source code yields significant insights into software developmentartifacts and processes"</i> [1].
+          Rephrasing this observation in our context, one of the main benefits of having a large collection of compilable C functions is the possibility
+          to analyze them statically. Here, we abuse this possibility to inspect properties from real- world code. Some of these properties
+          are folk knowledge. For instance, Boissinot <i>et al.</i> [2] say about SPEC CPU2006: <i>“About 95% percent of all variables have less than five
+          uses. Over 70% of all variables have only one use. However, there are also cases in which variables have more than 600 uses"</i>.
+          Angha-Bench lets us evaluate such statements in a much larger code base. We show some relations between static properties on two
+          suite of programs from Angha-Bench: a set collection of 530K compilable C functions and also a collection of 15K compilable C files.
+          </p>
+
+          <p>
+          We also presupose the existence of a ground-truth collection, that is, a collection of “typical" real-world benchmarks. Different
+          benchmarks have been used at different times and places throughout the still short history of compilers. Therefore, finding a
+          universally acceptable ground truth is an endeavour of improbable success. We settle for a collection of 288 programs,
+          which includes every benchmark available in the LLVM test collection (275 programs), plus the programs in the SPEC CINT CPU2006 suite
+          (13 programs). In all, this collection gives us 1,450,035 lines of code, spread across 31,366 functions from 2,315 files.
+        </p>
+
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card>
+      <h1 mat-card-title>Methodology</h1>
+      <mat-card-content>
+        <p>
+          To analyze programs, we convert them to the LLVM intermediate representation, and use LLVM’s passes to obtain data of interest.
+          We use the mem2reg pass to move into virtual registers the scalar values in the program. Using said methodology, this experiment analyzes
+          four ratios involving static features of programs:
+          </p>
+
+          <ul>
+            <li>Number of stores vc number of loads;</li>
+            <li>Number of basic blocks vs number of instructions;</li>
+            <li>Number of definitions vs number of uses;</li>
+            <li>Number of basic blocks vs number of Control Flow Graph edges;</li>
+          </ul>
+
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card>
+      <h1 mat-card-title>Results</h1>
+      <mat-card-content>
+        <p>
+          The charts below show relations between the static features previously mentioned for the 530K compilable C functions available in
+          Angha-Bench. Each feature contains regression lines for the Angha-Bench programs, and for the ground-truth collection. We show the latter to
+          contrast Angha with other synthetic collections. Each scatter plot in the charts show the slope of the regression line. This information lets us conclude,
+           for instance, that,on average, each program variable (in the SSA representation) is used 1/0.594 = 1.68 times, and each basic block tends to
+           contain 1/0.146 = 6.85 instructions.
+        </p>
+
+        <br><br><p>
+          <img mat-card-image class="chart-img" style="width: 70%; height: 70%; margin-left: 115px;" [src]="'assets/img/charts/codeAnalysis_530K.png'" alt="Relation between four different features of the selected suite.">
+        </p>
+      </mat-card-content>
+
+      <mat-card-content>
+        <p>
+          In the 15K compilable files suite, the results are similar. As the following charts illustrate, the static properties follow the same trends
+          in relation to the 530K programs.
+        </p>
+
+        <br><br><p>
+          <img mat-card-image class="chart-img" style="width: 70%; height: 70%; margin-left: 115px;" [src]="'assets/img/charts/codeAnalysis_WholeFiles.png'" alt="Relation between four different features of the selected suite.">
+        </p>
+      </mat-card-content>
+    </mat-card>
+
+
+    <mat-card>
+      <h1 mat-card-title>References</h1>
+      <mat-card-content>
+        <p>
+          [1] - DYER, Robert et al. Boa: Ultra-large-scale software repository and source-code mining. <b>ACM Transactions on Software Engineering
+          and Methodology (TOSEM)</b>, v. 25, n. 1, p. 1-34, 2015.
+          <a class="anghaTheme" href="https://dl.acm.org/doi/10.1145/2803171" target="_blank">https://doi.org/10.1145/2803171</a>
+        </p>
+        <p>
+          [2] - BOISSINOT, Benoit et al. Fast liveness checking for SSA-form programs. In: <b>Proceedings of the 6th annual IEEE/ACM
+          international symposium on Code generation and optimization</b>. 2008. p. 35-44.
+          <a class="anghaTheme" href="https://dl.acm.org/doi/10.1145/1356058.1356064" target="_blank">https://doi.org/10.1145/1356058.1356064</a>
+        </p>
+
+      </mat-card-content>
+    </mat-card>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
