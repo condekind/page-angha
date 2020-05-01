@@ -12,6 +12,8 @@ import { MatIconModule } from '@angular/material/icon'
 import { MatButtonModule } from '@angular/material/button'
 import { FontAwesomeModule }  from '@fortawesome/angular-fontawesome'
 
+import { CodeBlockModule } from '../code-block/code-block.module'
+
 
 @NgModule({
   declarations: [BenchmarksComponent],
@@ -25,6 +27,7 @@ import { FontAwesomeModule }  from '@fortawesome/angular-fontawesome'
     MatIconModule,
     MatButtonModule,
     FontAwesomeModule,
+    CodeBlockModule,
   ]
 })
 export class BenchmarksModule { }

@@ -1,12 +1,8 @@
 
 :host {}
 
-table {
-  width: 90%;
-  margin: auto;
-}
-
-tr.mat-header-row
+.bg-image
 {
-  height: 36px;
+  object-fit: cover;
+  width: 90%;
 }
